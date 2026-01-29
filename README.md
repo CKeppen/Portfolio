@@ -1,7 +1,6 @@
 # **Cody Keppen's Cybersecurity Portfolio**
 
-Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in cybersecurity. I just started using Github in November and any advice would be appreciated as I learn to use this as a portfolio.
-
+Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in cybersecurity.
 As an entry-level SOC Analyst with 9 years of experience in quality assurance and data integrity, I focus on applying rigorous, data-driven analysis to security challenges.
 
 ## **Projects & Write-Ups**
