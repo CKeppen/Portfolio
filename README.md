@@ -14,7 +14,7 @@ Here you will find detailed reports from my labs and personal projects.
   * [**Network Traffic Analysis using tcpdump**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Cybersecurity%20incident%20report%20network%20traffic%20analysis.md): Report of a possible DoS attack after using tcpdump after reports of customers getting an error message when visiting the company website.
   * [**Brute Force Incident Report**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Security%20incident%20report%20%20-%20Brute%20Force.md): Report of a Brute Force attack after reviewing newtork logs.
  
-  *  **Phishing Analysis**
+ *  **Phishing Analysis**
     * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
 
 * **Technical Skills Examples**
