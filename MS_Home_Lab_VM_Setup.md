@@ -474,6 +474,8 @@ This change requires permission by using the Domain Administrator login credenti
 
 With the network setup for the VM's, the objectives for the demonstration are completed and need to be verified.
 
+---
+
 # Verification Steps
 
 ## VirtualBox VM Creation and configuration.
