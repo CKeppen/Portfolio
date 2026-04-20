@@ -11,15 +11,15 @@ Here you will find detailed reports from my labs and personal projects.
   * [**First Home Lab Creation - Kali/Metasploitable2 (11/02/2026)**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
   * [**Windows Virtual Machine Environment Setup (02/04/2026)**](https://github.com/CKeppen/Portfolio/blob/main/MS_Home_Lab_VM_Setup.md#virtual-machine-creation.md): This is my more advanced home lab setup with a full Windows Environment. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM.
 
+* **Phishing Analysis**
+  * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
+
 * **Incident Response Analysis**  
   * [**Incident Report**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Incident%20Report.md): A detailed analysis of an internal data leak, including a review of NIST controls (AC-6 Least Privilege) and remediation recommendations.
   * [**Alert Ticket Escalation**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Alert%20ticket%20escalation.md): An example of investigating a ticket with VirusTotal, discovering a possible cyber event, then escalating the ticket in a timely manner with relevent information for the next operator.
   * [**Reporting on possible DoS attack**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Cybersecurity%20incident%20report%20-%20DoS%20Logs.md): Simulated report of a possible DoS attack with additional information of what a DoS attack is.
   * [**Network Traffic Analysis using tcpdump**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Cybersecurity%20incident%20report%20network%20traffic%20analysis.md): Report of a possible DoS attack after using tcpdump after reports of customers getting an error message when visiting the company website.
   * [**Brute Force Incident Report**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Security%20incident%20report%20%20-%20Brute%20Force.md): Report of a Brute Force attack after reviewing newtork logs.
- 
-* **Phishing Analysis**
-  * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
 
 * **Technical Skills Examples**
 
