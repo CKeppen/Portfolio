@@ -113,7 +113,10 @@ For the file management, I decide on the below file structure. That way if I nee
                 └── Windows-Server-DC.vdi
                 
 
+
 ```
+
+I did discover an issue in which I accidently installed the OS on the HDD and not the SDD. [HDD/SSD Mounting Discovery](#hddsdd_mounting_discovery)
 
 ## Windows VM Creation
 
