@@ -19,7 +19,7 @@ Here you will find detailed reports from my labs and personal projects.
 
 * **Technical Skills Examples**
   * [**First Home Lab Creation(Kali/Metasploitable2)**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2, (11/02/2025).
-  * [**Windows Virtual Machine Environment Setup**](https://github.com/CKeppen/Portfolio/blob/main/MS_Home_Lab_VM_Setup.md#virtual-machine-creation.md): This is my more advanced home Lab setup with a Windows Environement. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM, (02/04/2026).
+  * [**Windows Virtual Machine Environment Setup**](https://github.com/CKeppen/Portfolio/blob/main/MS_Home_Lab_VM_Setup.md#virtual-machine-creation.md): This is my more advanced home lab setup with a full Windows Environment. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM, (02/04/2026).
   * [**Virtual Machines- Attacking Vulnerable Machines**] *Documentation in Progress*
   * [**SQL Filtering**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Apply%20filters%20to%20SQL%20queries.md): An example of me using filtering with SQL.
   * [**Algorithm for file updates in Python**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Algorithm%20for%20file%20updates%20in%20Python.md): A demonstration of me using Python to create an algorithm to update a file. Removing IP addresses in a removed list from an approval list.
