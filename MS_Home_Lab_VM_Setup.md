@@ -116,7 +116,7 @@ For the file management, I decide on the below file structure. That way if I nee
 
 ```
 
-(I did discover an issue in which I accidently installed the OS on the HDD and not the SDD, discovered here). [HDD/SSD Mounting Discovery](#hddsdd-mounting-discovery)
+(I did discover an issue in which I accidently installed the OS on the HDD and not the SDD, discovered here). [HDD/SSD Mounting Discovery](#hdd/sdd-mounting-discovery)
 
 ## Windows VM Creation
 
