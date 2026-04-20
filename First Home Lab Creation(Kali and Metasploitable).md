@@ -1,5 +1,6 @@
 # Cybersecurity Home Lab Creation
 Author: Cody Keppen
+
 Date: 11/02/2025
 
 ## Project Goal
@@ -91,6 +92,7 @@ sudo ifconfig eth0 192.168.56.101 netmask 255.255.255.0 up
 ```
 I used the following:
 Kali IP: `10.10.10.10`
+
 Metasploitable2 IP: `10.10.10.30`
 
 ## Completion
