@@ -354,9 +354,11 @@ Then I use the Server IP of `192.168.10.1` so that the client uses the Server as
 Now, for the final test. Does the Server and Client reflect this information? 
 
 Client IP confirmed `192.168.10.2`
+
 ![Client IP confirmation](images/Pasted%20image%2020260416184945.png)
 
 Server, confirmed NAT address of `10.0.2.15` and Internal address of `192.168.10.1`
+
 ![Server IP confirmation](images/Pasted%20image%2020260416185444.png)
 
 ## Domain Controller Setup
@@ -515,15 +517,19 @@ Success.
 Server Ping to Client Test: Success
 
 First test is against the client. Which failed. I then turned off the domain firewall, and got successful pings. I go over that here [Firewall ICMP Block](#firewall-icmp-block).
+
 ![Server ping to Client - success after firewall change](images/Pasted%20image%2020260418194901.png)
 
 Server Ping to Kali Test: Success
+
 ![Server ping to Kali](images/Pasted%20image%2020260418201347.png)
 
 Client to Server Ping Test: Success
+
 ![Client ping to Server](images/Pasted%20image%2020260418201258.png)
 
 Client to Kali Ping Test: Success
+
 ![Client ping to Kali](images/Pasted%20image%2020260418201331.png)
 
 Before running the Kali tests, I setup the Kali IP, `192.168.10.3`, as it's the first time getting on the network. Which is a quick and easy process.
@@ -531,14 +537,17 @@ Before running the Kali tests, I setup the Kali IP, `192.168.10.3`, as it's the 
 ![Kali IP configuration](images/Pasted%20image%2020260418200126.png)
 
 Kali Ping to Server Test: Success
+
 ![Kali ping to Server](images/Pasted%20image%2020260418200202.png)
 
 ## Kali Probe Demonstration
 
 Kali Ping to Client Test: Windows Firewall block Success ([Firewall ICMP Block](#firewall-icmp-block))
+
 ![Kali ping to Client - blocked by firewall](images/Pasted%20image%2020260418200249.png)
 
 Kali Nmap scan to Client to Bypass Firewall Ping Test: Success
+
 ![Kali Nmap scan results on Client](images/Pasted%20image%2020260418200838.png)
 
 Not only a success, but the first vulnerability discovered with the open RPC Port: 135! I also added Server as the DNS for Kali with for now.
