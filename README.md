@@ -8,7 +8,7 @@ As an entry-level SOC Analyst with 9 years of experience in quality assurance an
 Here you will find detailed reports from my labs and personal projects.
 
 * **Home Lab Setups**
-  * [**First Home Lab Creation - Kali/Metasploitable2(11/02/2026)**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
+  * [**First Home Lab Creation - Kali/Metasploitable2 (11/02/2026)**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
   * [**Windows Virtual Machine Environment Setup (02/04/2026)**](https://github.com/CKeppen/Portfolio/blob/main/MS_Home_Lab_VM_Setup.md#virtual-machine-creation.md): This is my more advanced home lab setup with a full Windows Environment. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM.
 
 * **Incident Response Analysis**  
