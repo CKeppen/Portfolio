@@ -18,7 +18,7 @@ Here you will find detailed reports from my labs and personal projects.
     * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
 
 * **Technical Skills Examples**
-  * [**Home Lab Creation**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Home%20Lab%20Creation.md): My documentation on creating my first home lab.
+  * [**First Home Lab Creation(Kali/Metasploitable2)**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
   * [**Virtual Machine Environment Setup**] *Documentaiton in Progress*
   * [**Virtual Machines- Attacking Vulnerable Machines**] *Documentation in Progress*
   * [**SQL Filtering**](https://github.com/codykeppen-droid/Cody.Keppen-Cybersecurity_Portfolio/blob/main/Apply%20filters%20to%20SQL%20queries.md): An example of me using filtering with SQL.
