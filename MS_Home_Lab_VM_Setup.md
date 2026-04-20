@@ -1,7 +1,9 @@
 # MS Home Lab VM Setup
 
 Author: Cody Keppen
+
 LinkedIn Profile: [Cody-Keppen](https://www.linkedin.com/in/cody-keppen-a09068355/)
+
 Date: 02/04/2026
 
 # Table of Contents
