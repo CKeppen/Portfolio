@@ -100,6 +100,8 @@ With `7z x malware_check.rar` I do get the `SWT_#09674321__PDF[.]com` extracted.
 
 Regardless, the existence of this file is confirmed. With it being a `[.]com`,  the file is executable and will attempt a connection when opened.
 
+---
+
 # Technical Analysis
 
 This looks to be a phishing campaign targeting the sales team using a known business partner.
