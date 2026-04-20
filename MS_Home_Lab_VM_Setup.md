@@ -80,7 +80,7 @@ This is the network diagram concept to be created for this lab. The Internal Net
 	- Default Gateway: Windows Server
 	- DNS: Windows Server
 
-![Lab Network Diagram](images/Pasted%image%20260419184046.png)
+![Lab Network Diagram](images/Pasted%20image%2020260419184046.png)
 
 ## VM File Management
 
@@ -119,25 +119,25 @@ For the file management, I decide on the below file structure. That way if I nee
 
 In VirtualBox, click the "New" icon at the top. This will bring up a VM wizard to help with the installation of the two Windows machines.
 
-![VirtualBox New VM button](images/Pasted%image%20260411165745.png)
+![VirtualBox New VM button](images/Pasted%20image%2020260411165745.png)
 
 In the wizard, a name is given and the VM folder is selected for the `.vbox` and `.vdi` files.
 
 I leave the ISO Image blank for now to keep things simple and not have VirtualBox do too much setup here to avoid any conflicts. OS and OS Version are set to the future `.iso` file image I connect later.
 
-![VM Wizard - Name and OS](images/Pasted%image%20260411170242.png)
+![VM Wizard - Name and OS](images/Pasted%20image%2020260411170242.png)
 
 The next page creates the `.vbox` settings to allocate resources to the VM. As an example for the server, 4 GB of memory and 2 CPUs are allocated with the default of 50 GB of Disk space. EFI is selected for the UEFI secure boot.
 
-![VM Wizard - Hardware](images/Pasted%image%20260411171655.png)
+![VM Wizard - Hardware](images/Pasted%20image%2020260411171655.png)
 
 Afterwards, a summary page for review to finish the creation of the `.vdi` and `.vbox` files.
 
-![VM Wizard - Summary](images/Pasted%image%20260411171733.png)
+![VM Wizard - Summary](images/Pasted%20image%2020260411171733.png)
 
 I did this for both the Server and Client, shown below.
 
-![Server and Client VMs created](images/Pasted%image%20260411172143.png)
+![Server and Client VMs created](images/Pasted%20image%2020260411172143.png)
 
 Windows-Server-DC: 
 - Windows Server 2022 64-bit
@@ -159,22 +159,22 @@ Going back to the [Lab Network Configuration](#lab-network-configuration) concep
 
 One way you can get to the settings by right clicking the machine, then settings. Then scrolling down to "Network" to select and see the adapters. 
 
-![Network Settings menu](images/Pasted%image%20260411174126.png)
+![Network Settings menu](images/Pasted%20image%2020260411174126.png)
 
 Below are the settings for the Windows Server. Adapter 1 being the NAT network to communicate outside the VirtualBox network to the internet, while not allowing internet traffic to originate into the Lab Network.
 
 Server Adapter 1:
-![Server Adapter 1 - NAT](images/Pasted%image%20260411173728.png)
+![Server Adapter 1 - NAT](images/Pasted%20image%2020260411173728.png)
 
 Adapter 2 is an Internal Network setting. This allows the Server to communicate with any other machines on the Lab Network.
 
 Server Adapter 2: 
-![Server Adapter 2 - Internal Network](images/Pasted%image%20260411173843.png)
+![Server Adapter 2 - Internal Network](images/Pasted%20image%2020260411173843.png)
 
 The client only gets the Internal Network Lab Network setting. Meaning it can only see other machines on this network. It cannot see outside the VirtualBox. Relying on the Server to communicate outside the Lab Network, as the Gateway for the network. This creates the private Lab Network.
 
 Client Adapter 1: 
-![Client Adapter 1 - Internal Network](images/Pasted%image%20260411174401.png)
+![Client Adapter 1 - Internal Network](images/Pasted%20image%2020260411174401.png)
 
 ## .ISO Connection
 
@@ -184,11 +184,11 @@ Another way to adjust the settings of a machine is to select the machine, then s
 
 Here I need to go to the "Storage" settings and connect the `.iso` for the initial install. You can see the `.vdi` already connected acting as a hard drive with 50 GB.
 
-![Storage settings with .vdi](images/Pasted%image%20260411173404.png)
+![Storage settings with .vdi](images/Pasted%20image%2020260411173404.png)
 
 From here, depending on the machine you're setting up, you'll click the "Empty" optical drive on the left. On the right side will be the same optical drive symbol to click. Here you'll locate the `.iso` file for this specific machine.  As in, the Server VM will use the Server `.iso` shown below. Think of this like inserting a CD into the disc drive of your computer.
 
-![Connecting the .iso to the optical drive](images/Pasted%image%20260411175630.png)
+![Connecting the .iso to the optical drive](images/Pasted%20image%2020260411175630.png)
 
 This is done for both the Server and Client.
 
@@ -200,7 +200,7 @@ One main difference is that once I get to the Server login, a complex password i
 
 Both VM's launch. Success!
 
-![Both Windows VMs running](images/Pasted%image%20260411180936.png)
+![Both Windows VMs running](images/Pasted%20image%2020260411180936.png)
 
 ## VirtualBox Guest Additions
 
@@ -212,19 +212,19 @@ sudo apt update && sudo apt install virtualbox-guest-additions-iso -y
 
 First I'm going to shutdown the VM by clicking the "x" on the top right. Then select "Send the shutdown signal", which is the same as selecting "Shutdown" on your PC. "Save the machine state" saves the VM in it's current running state. "Power off the machine" is like a hard shutdown when holding down the power button of the device.
 
-![VM shutdown options](images/Pasted%image%20260411181557.png)
+![VM shutdown options](images/Pasted%20image%2020260411181557.png)
 
 With the same concept to connect the initial install `.iso`, I'll now choose the VBox Guest Additions for installation once the machine is down. Again, like inserting a VBox Guest Additions CD into the disc drive to install.
 
-![Connecting VBox Guest Additions .iso](images/Pasted%image%20260411181422.png)
+![Connecting VBox Guest Additions .iso](images/Pasted%20image%2020260411181422.png)
 
 When I'm back in the VM, I can see a disc drive for the VBox Guest Additions in the File Manager.
 
-![VBox Guest Additions disc in File Manager](images/Pasted%image%20260411181706.png)
+![VBox Guest Additions disc in File Manager](images/Pasted%20image%2020260411181706.png)
 
 I choose the VBox WindowsAddition-amd64 application to run and install. Then reboot for a smoother experience.
 
-![VBoxWindowsAdditions installer](images/Pasted%image%20260411181752.png)
+![VBoxWindowsAdditions installer](images/Pasted%20image%2020260411181752.png)
 
 ## VirtualBox Snapshot
 
@@ -232,7 +232,7 @@ Now that I have the two Windows machines up and running and with VBox Guest Addi
 
 With the VM selected, in the details window on the right is a second tab with a camera icon called "Snapshots". On the top left will be a "Take" button that once clicked will create a current snapshot of your VM. You'll give the snapshot a name, and a short description. After that, they'll be in a list format to choose from.
 
-![Snapshot tab in VirtualBox](images/Pasted%image%20260411182906.png)
+![Snapshot tab in VirtualBox](images/Pasted%20image%2020260411182906.png)
 
 This is perfect for experimenting with your machines and should be taken advantage of when learning something new. Even in this documentation, I've gone back and forth to better help put down my actions in this writing when I felt my information dump of notes didn't help with the documentation. Or going through the network setup multiple times for practice or experiments of doing something better.
 
@@ -240,7 +240,7 @@ This is perfect for experimenting with your machines and should be taken advanta
 
 Luckily, Kali is incredibly easy to install. Going to Kali site for the [pre-built VM](https://www.kali.org/get-kali/#kali-virtual-machines), download the `.7z` zip file for VirtualBox.
 
-![Kali pre-built VM download page](images/Pasted%image%20260411184752.png)
+![Kali pre-built VM download page](images/Pasted%20image%2020260411184752.png)
 
 In the Host i5-6500 terminal, I run the following command to unzip file for install.
 
@@ -252,21 +252,21 @@ This will provide the pre-built `.vdi` and `.vbox` files for Kali.
 
 In VirtualBox, click the "Add" button and select the Kali `.vbox` that was just downloaded. 
 
-![VirtualBox Add button](images/Pasted%image%20260411165745.png)
+![VirtualBox Add button](images/Pasted%20image%2020260411165745.png)
 
-![Kali .vbox added to VirtualBox](images/Pasted%image%20260411192051.png)
+![Kali .vbox added to VirtualBox](images/Pasted%20image%2020260411192051.png)
 
 Go to Network settings and choose Adapter 1 to be the Internal Network, Lab Network like the other VMs. Again, the concept is to isolate the lab from the internet using the Internal Network, while the Server handles requests outside the Lab. 
 
-![Kali Adapter 1 - Internal Network](images/Pasted%image%20260411192111.png)
+![Kali Adapter 1 - Internal Network](images/Pasted%20image%2020260411192111.png)
 
 Run the Kali VM, enter the default login. Then you're in. Make a base Snapshot and this is now setup.
 
-![Kali VM running](images/Pasted%image%20260411185459.png)
+![Kali VM running](images/Pasted%20image%2020260411185459.png)
 
 The VirtualBox now has a Windows Server, Windows Client and Kali system up and running.
 
-![All three VMs in VirtualBox](images/Pasted%image%20260411185719.png)
+![All three VMs in VirtualBox](images/Pasted%20image%2020260411185719.png)
 
 Now that the machines are up and running, I need to get the network setup. Then the Domain Controller with Active Directory and DNS.
 
@@ -274,13 +274,13 @@ Now that the machines are up and running, I need to get the network setup. Then 
 
 In the Windows Server, I need to discover the NAT and Internal Network cards. Going to the Network Connections menu, I see two network adapters, "Ethernet" and "Ethernet 2".
 
-![Network Connections - two adapters](images/Pasted%image%20260416171511.png)
+![Network Connections - two adapters](images/Pasted%20image%2020260416171511.png)
 
 To discover which is the NAT and Internal Network, I check the status of these adapters.
 
 Left side is Ethernet and right side is Ethernet 2. 
 
-![Ethernet adapter status comparison](images/Pasted%image%20260416172849.png)
+![Ethernet adapter status comparison](images/Pasted%20image%2020260416172849.png)
 
 Ethernet 2 has a `10.0.2.15` with a gateway, DHCP and DNS server, while Ethernet has a `169.254.x.x`, which is an APIPA (Automatic Private IP Addressing) IP. Meaning the device couldn't find a DHCP server to give it an IP. Ethernet 2 got it's IP from the VirtualBox DHCP, meaning it has outside connection, which points to this being the NAT.
 
@@ -289,57 +289,57 @@ Now that I can identify which adapter is which, I rename them to better setup th
 "Ethernet 2" > "Internet" (NAT)
 "Ethernet" > "Internal" (Internal Network: Lab Network)
 
-![Renamed network adapters](images/Pasted%image%20260416172750.png)
+![Renamed network adapters](images/Pasted%20image%2020260416172750.png)
 
 Going to the Internal card properties, I'm going to give it the static IP of `192.168.10.1`, subnet mask `255.255.255.0` and a preferred DNS of `127.0.0.1` to resolve DNS itself. Default Gateway is left blank, since this is for the Internal network.
 
-![Internal adapter static IP configuration](images/Pasted%image%20260416173238.png)
+![Internal adapter static IP configuration](images/Pasted%20image%2020260416173238.png)
 
 Verification of the Internal card with the new IP and subnet, `192.168.10.0/24` for the Lab Network.
 
-![Internal adapter IP verification](images/Pasted%image%20260416173608.png)
+![Internal adapter IP verification](images/Pasted%20image%2020260416173608.png)
 
 (I did end up mixing the Internal Network and NAT cards with the names - Internet and Internal. I knew which was which, but the names are so similar and I typed the wrong one for each. I caught it, but I somehow created a second Internal card. Which leads to an issue later that I have to solve. Mentioned and documented in this section.)
 
 With the Internal Network setup, I'll use Server Manager to setup the Domain Controller. In Server Manager, I'll select "Add Roles and Features" to begin the process.
 
-![Server Manager - Add Roles and Features](images/Pasted%image%20260416173932.png)
+![Server Manager - Add Roles and Features](images/Pasted%20image%2020260416173932.png)
 
 In the Wizard menu, I'll leave the Installation Type on "Role-based or feature-based installation".
 
 At server selection, I can confirm the IP Address of the Windows Server and OS.
 
-![Server selection confirmation](images/Pasted%image%20260416174207.png)
+![Server selection confirmation](images/Pasted%20image%2020260416174207.png)
 
 In the next screen is the server role selection. This is where Active Directory Domain Services is selected. (AD DS). Clicking Add Features to move forward with the decision.
 
-![AD DS role selection](images/Pasted%image%20260416174347.png)
+![AD DS role selection](images/Pasted%20image%2020260416174347.png)
 
 Going through the next screens to confirm the selection, then hitting "Install".
 
-![AD DS installation confirmation](images/Pasted%image%20260416174518.png)
+![AD DS installation confirmation](images/Pasted%20image%2020260416174518.png)
 
 After the installation, the Server Manager Dashboard has a yellow warning label to ensure configuration of the AD DS.
 
-![Server Manager yellow warning for AD DS config](images/Pasted%image%20260416174946.png)
+![Server Manager yellow warning for AD DS config](images/Pasted%20image%2020260416174946.png)
 
 In the Deployment Configuration menu, I select "Add a new forest" and choose the Root domain name, `cyberlab.local`.
 
-![AD DS Deployment Configuration - new forest](images/Pasted%image%20260416181338.png)
+![AD DS Deployment Configuration - new forest](images/Pasted%20image%2020260416181338.png)
 
 I create a Directory Services Restore Mode (DSRM) password when prompted.
 
 I move through the rest of the configuration wizard menu using the defaults, then installing. Once finished, the machine will reboot.
 
-![AD DS installation progress](images/Pasted%image%20260416181944.png)
+![AD DS installation progress](images/Pasted%20image%2020260416181944.png)
 
 When the server reboots, this is now the login screen with the CYBERLAB domain. Success!
 
-![CYBERLAB domain login screen](images/Pasted%image%20260416182323.png)
+![CYBERLAB domain login screen](images/Pasted%20image%2020260416182323.png)
 
 Now Server Manager has additional roles. AD DS and DNS. Success!
 
-![Server Manager with AD DS and DNS roles](images/Pasted%image%20260418152655.png)
+![Server Manager with AD DS and DNS roles](images/Pasted%20image%2020260418152655.png)
 
 ## Client Network Setup
 
@@ -349,21 +349,21 @@ Going to the Ethernet adapter, I give the Client a static IP of `192.168.10.2` w
 
 Then I use the Server IP of `192.168.10.1` so that the client uses the Server as the DNS Server.
 
-![Client static IP configuration](images/Pasted%image%20260416184830.png)
+![Client static IP configuration](images/Pasted%20image%2020260416184830.png)
 
 Now, for the final test. Does the Server and Client reflect this information? 
 
 Client IP confirmed `192.168.10.2`
-![Client IP confirmation](images/Pasted%image%20260416184945.png)
+![Client IP confirmation](images/Pasted%20image%2020260416184945.png)
 
 Server, confirmed NAT address of `10.0.2.15` and Internal address of `192.168.10.1`
-![Server IP confirmation](images/Pasted%image%20260416185444.png)
+![Server IP confirmation](images/Pasted%20image%2020260416185444.png)
 
 ## Domain Controller Setup
 
 Back on the Server, I get to the "Active Directory Users and Computers" window through the Server Manager "Tools". I can see `cyberlab.local` domain! Success!
 
-![Active Directory Users and Computers - cyberlab.local](images/Pasted%image%20260418172138.png)
+![Active Directory Users and Computers - cyberlab.local](images/Pasted%20image%2020260418172138.png)
 
 Now, back on the Client I need to join it to the domain.
 
@@ -371,36 +371,36 @@ In the "About your PC" menu", I find the "Rename this PC (advance)" option. Sele
 
 In the "Computer Name/Domain Changes" window, I select "Domain" and enter the `cyberlab.local` I just created.
 
-![Domain join dialog](images/Pasted%image%20260418172526.png)
+![Domain join dialog](images/Pasted%20image%2020260418172526.png)
 
 An administrator login with popup for permissions. Using the admin account setup on the server, permission is granted.
 
-![Admin credentials prompt for domain join](images/Pasted%image%20260418173025.png)
+![Admin credentials prompt for domain join](images/Pasted%20image%2020260418173025.png)
 
 (See [Admin name](#admin-name) section for the hurdle of the nuances of the new admin name and domain join.)
 
 Once entered correctly, there is a "Welcome" message, followed by a restart prompt that must occur, which I then restart the Client VM.
 
-![Domain join welcome message](images/Pasted%image%20260418174125.png)
-![Restart prompt](images/Pasted%image%20260418174153.png)
+![Domain join welcome message](images/Pasted%20image%2020260418174125.png)
+![Restart prompt](images/Pasted%20image%2020260418174153.png)
 
 Now at the new login screen of the Client, I'm going to test logging in as the Domain Admin by clicking "Other Users" at the bottom. Then logging in as `CYBERLAB\Administrator`. Though seeing "CYBERLAB" is already a good indicator.
 
-![Client login screen showing CYBERLAB domain](images/Pasted%image%20260418174432.png)
+![Client login screen showing CYBERLAB domain](images/Pasted%20image%2020260418174432.png)
 
 Success!
 
-![Logged in as CYBERLAB Administrator](images/Pasted%image%20260418174512.png)
+![Logged in as CYBERLAB Administrator](images/Pasted%20image%2020260418174512.png)
 
 Once the Client is loaded up while logged in as the CYBERLAB admin, it's time to check the Computers in the Active Directory on the Server for further verification.
 
 On the Server in "Active Directory Users and Computers", Computer `DESKTOP-MBV8D69` is shown.
 
-![Active Directory Computers showing client](images/Pasted%image%20260418175101.png)
+![Active Directory Computers showing client](images/Pasted%20image%2020260418175101.png)
 
 Going back to the Client "About your PC" page, it is confirmed! Even the "Full Device Name" shows the domain, `DESKTOP-MBV8D69.cyberlab.local`. Nice!
 
-![Client About PC showing domain](images/Pasted%image%20260418175133.png)
+![Client About PC showing domain](images/Pasted%20image%2020260418175133.png)
 
 ## Creating an IT Admin User
 
@@ -408,59 +408,59 @@ Now that the Client is on the domain, I'm going to make an IT admin user for my 
 
 In the "Active Directory Users and Computers" window, I go to Users > New > User.
 
-![New User option in AD](images/Pasted%image%20260418180435.png)
+![New User option in AD](images/Pasted%20image%2020260418180435.png)
 
 I'm going to make an admin named Cody Admin. Using the middle initials as a way for me to easily identify their department, as I make more users.
 
-![New user - Cody Admin](images/Pasted%image%20260418181338.png)
+![New user - Cody Admin](images/Pasted%20image%2020260418181338.png)
 
 Next window is to create a password. Since this will be my main account, I'm going to uncheck "User must change password at next logon", but will keep it for future Users.
 
-![Password options for new user](images/Pasted%image%20260418181542.png)
+![Password options for new user](images/Pasted%20image%2020260418181542.png)
 
 Then hit finish after reviewing for any typos.
 
-![New user summary](images/Pasted%image%20260418181605.png)
+![New user summary](images/Pasted%20image%2020260418181605.png)
 
 I did however have second thoughts about the "Password Never Expires" since this is a lab and not real environment, and added that.
 
-![Password Never Expires setting](images/Pasted%image%20260418181759.png)
+![Password Never Expires setting](images/Pasted%20image%2020260418181759.png)
 
 Back to the Client, I log out of the Domain Administrator, and now the new Admin user. 
 
 Success!
 
-![Logged in as cody_admin](images/Pasted%image%20260418181923.png)
+![Logged in as cody_admin](images/Pasted%20image%2020260418181923.png)
 
 ## Remote Access Setup
 
 Now I need to set the Server up to allow the Client to access the internet securely using the Server for routing. In the "Server Manager" window, I go to Manage > Add Roles and Features.
 
-![Server Manager - Add Roles and Features](images/Pasted%image%20260418182415.png)
+![Server Manager - Add Roles and Features](images/Pasted%20image%2020260418182415.png)
 
 I'll go through the Wizard till I get to Server Roles and find Remote Access.
 
-![Remote Access role selection](images/Pasted%image%20260418182557.png)
+![Remote Access role selection](images/Pasted%20image%2020260418182557.png)
 
 In "Role Services", I check "Routing" and "Add Features", which will also toggle on "DirectAccess and VPN(RAS)"
 
-![Routing and RAS role services](images/Pasted%image%20260418182720.png)
+![Routing and RAS role services](images/Pasted%20image%2020260418182720.png)
 
 At the end of the Wizard, I review, then Install.
 
-![Remote Access installation confirmation](images/Pasted%image%20260418182844.png)
+![Remote Access installation confirmation](images/Pasted%20image%2020260418182844.png)
 
 Once that is finished, on the Server still I'll go to Tools then Routing and Remote Access.
 
-![Tools - Routing and Remote Access](images/Pasted%image%20260418183226.png)
+![Tools - Routing and Remote Access](images/Pasted%20image%2020260418183226.png)
 
 In the "Routing and Remote Access" window, I see the Server and a red down error. I'll right click and select "Configure and Enable Routing and Remote Access" to bring up the Remote Access Server Setup Wizard.
 
-![Routing and Remote Access - configure option](images/Pasted%image%20260418183401.png)
+![Routing and Remote Access - configure option](images/Pasted%20image%2020260418183401.png)
 
 I'm going to select NAT, then find the Internet adapter with the IP address of `10.0.2.15`, that was confirmed earlier. Then select "Finish". (I did have to exit and go back in for a refresh to see these.)
 
-![NAT configuration - selecting Internet adapter](images/Pasted%image%20260418184027.png)
+![NAT configuration - selecting Internet adapter](images/Pasted%20image%2020260418184027.png)
 
 (I did end up running into some trouble getting a connection, as I ended up with two internal networks in my NAT. I'm guessing this occurred earlier when I mixed the Ethernet adapters. I go over that here [Google DNS Ping issue](#google-dns-ping-issue).)
 
@@ -468,7 +468,7 @@ Now, going back to the Client while as `cody_admin` I'm going to change the Defa
 
 This change requires permission by using the Domain Administrator login credentials.
 
-![Client Default Gateway set to Server IP](images/Pasted%image%20260418184922.png)
+![Client Default Gateway set to Server IP](images/Pasted%20image%2020260418184922.png)
 
 With the network setup for the VM's, the objectives for the demonstration are completed and need to be verified.
 
@@ -480,7 +480,7 @@ Success.
 
 Three functioning VM's, a Windows Server, Windows 10 Client and Kali Linux
 
-![All three VMs running in VirtualBox](images/Pasted%image%20260418191036.png)
+![All three VMs running in VirtualBox](images/Pasted%20image%2020260418191036.png)
 
 ## Snapshot creation and Implementation
 
@@ -488,7 +488,7 @@ Success.
 
 A base and network snapshot created for easy rollback.
 
-![Snapshots list for VMs](images/Pasted%image%20260418191146.png)
+![Snapshots list for VMs](images/Pasted%20image%2020260418191146.png)
 
 ## Multi-home Network Configuration Using the Server as DNS for VMs.
 
@@ -496,7 +496,7 @@ Success.
 
 Client using the Server as a Gateway has successful pings to Google DNS.
 
-![Client pinging Google DNS successfully](images/Pasted%image%20260418191805.png)
+![Client pinging Google DNS successfully](images/Pasted%20image%2020260418191805.png)
 
 ## Server AD DS Configuration
 
@@ -504,9 +504,9 @@ Success
 
 Server has AD DS and DNS up and running, with the `cyberlab.local` domain.
 
-![AD DS running on Server](images/Pasted%image%20260418201557.png)
+![AD DS running on Server](images/Pasted%20image%2020260418201557.png)
 
-![DNS running on Server](images/Pasted%image%20260418201730.png)
+![DNS running on Server](images/Pasted%20image%2020260418201730.png)
 
 ## Successful pings between Server, Client and Kali
 
@@ -515,31 +515,31 @@ Success.
 Server Ping to Client Test: Success
 
 First test is against the client. Which failed. I then turned off the domain firewall, and got successful pings. I go over that here [Firewall ICMP Block](#firewall-icmp-block).
-![Server ping to Client - success after firewall change](images/Pasted%image%20260418194901.png)
+![Server ping to Client - success after firewall change](images/Pasted%20image%2020260418194901.png)
 
 Server Ping to Kali Test: Success
-![Server ping to Kali](images/Pasted%image%20260418201347.png)
+![Server ping to Kali](images/Pasted%20image%2020260418201347.png)
 
 Client to Server Ping Test: Success
-![Client ping to Server](images/Pasted%image%20260418201258.png)
+![Client ping to Server](images/Pasted%20image%2020260418201258.png)
 
 Client to Kali Ping Test: Success
-![Client ping to Kali](images/Pasted%image%20260418201331.png)
+![Client ping to Kali](images/Pasted%20image%2020260418201331.png)
 
 Before running the Kali tests, I setup the Kali IP, `192.168.10.3`, as it's the first time getting on the network. Which is a quick and easy process.
 
-![Kali IP configuration](images/Pasted%image%20260418200126.png)
+![Kali IP configuration](images/Pasted%20image%2020260418200126.png)
 
 Kali Ping to Server Test: Success
-![Kali ping to Server](images/Pasted%image%20260418200202.png)
+![Kali ping to Server](images/Pasted%20image%2020260418200202.png)
 
 ## Kali Probe Demonstration
 
 Kali Ping to Client Test: Windows Firewall block Success ([Firewall ICMP Block](#firewall-icmp-block))
-![Kali ping to Client - blocked by firewall](images/Pasted%image%20260418200249.png)
+![Kali ping to Client - blocked by firewall](images/Pasted%20image%2020260418200249.png)
 
 Kali Nmap scan to Client to Bypass Firewall Ping Test: Success
-![Kali Nmap scan results on Client](images/Pasted%image%20260418200838.png)
+![Kali Nmap scan results on Client](images/Pasted%20image%2020260418200838.png)
 
 Not only a success, but the first vulnerability discovered with the open RPC Port: 135! I also added Server as the DNS for Kali with for now.
 
@@ -585,7 +585,7 @@ To mount the SSD:
 - Click "Create"
 - Confirm the 2 TB Disk and "Lab Storage" is now in the File Manager
 
-![SSD mounted as Lab Storage in File Manager](images/Pasted%image%20260410231527.png)
+![SSD mounted as Lab Storage in File Manager](images/Pasted%20image%2020260410231527.png)
 
 Once confirmed, I got back to the [Virtual Machine Creation](#virtual-machine-creation) steps. This is something I will address later and document fixing. As I might be able to move drives around for better efficiency between my other devices. As that is a good SSD, that I could put into my T14, which only has 512 GB.
 
@@ -601,11 +601,11 @@ Back to [Domain Controller Setup](#domain-controller-setup).
 
 I was having issue after setting up the Default Gateway to actually get any pings with Google. 
 
-![Google DNS ping failing](images/Pasted%image%20260418190529.png)
+![Google DNS ping failing](images/Pasted%20image%2020260418190529.png)
 
 Eventually, I went into the Router and Remote Access window to find that I had two Internal Network cards. Which was causing confusion with the system. This probably was created when I realized I swapped the adapters. 
 
-![Two Internal Network cards in Routing and Remote Access](images/Pasted%image%20260418190618.png)
+![Two Internal Network cards in Routing and Remote Access](images/Pasted%20image%2020260418190618.png)
 
 Once I deleted the extra one, I was able to get the Google DNS pings and continue on with the [Remote Access Setup](#remote-access-setup).
 
@@ -613,21 +613,21 @@ Once I deleted the extra one, I was able to get the Google DNS pings and continu
 
 When doing the ping tests, I came across the situation in which the Client could ping the Server, but the Server was not able to ping the Client. Which was odd to me, as both could ping Google DNS `8.8.8.8`. The below are the CMD of the Server on left and Client on right.
 
-![Server-Client ping asymmetry](images/Pasted%image%20260418232603.png)
+![Server-Client ping asymmetry](images/Pasted%20image%2020260418232603.png)
 
 Both were confirmed to be on the same subnet and the Client pinging the Server further provided they should be able to ping each other.
 
 I ran `traceroute` and found the subnet `192.168.10.0/24` does go out the internal card using `192.168.10.1`
 
-![Traceroute output](images/Pasted%image%20260418233551.png)
+![Traceroute output](images/Pasted%20image%2020260418233551.png)
 
 I then went to check if it was truly the Firewall that was possibly blocking the ICMP echo requests to the Client. So I turned off the Domain Firewall, which prompted the Domain Admin credentials.
 
-![Domain Firewall toggle - admin credentials prompt](images/Pasted%image%20260418233848.png)
+![Domain Firewall toggle - admin credentials prompt](images/Pasted%20image%2020260418233848.png)
 
 Here is a side by side of the ping on the left from the Server to the Client, which on the right shows the Domain Firewall is off. Showing, a successful connection.
 
-![Side-by-side ping success with firewall off](images/Pasted%image%20260418233935.png)
+![Side-by-side ping success with firewall off](images/Pasted%20image%2020260418233935.png)
 
 Once confirmed, I turned the Firewall back on. After some research, Windows Firewall does block ICMP echo requests.
 
