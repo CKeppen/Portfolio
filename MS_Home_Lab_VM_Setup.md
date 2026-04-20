@@ -110,8 +110,7 @@ For the file management, I decide on the below file structure. That way if I nee
             └── Windows-Server-DC
                 ├──Snapshots
                 ├── Windows-Server-DC.vbox
-                └── Windows-Server-DC.vdi
-                
+                └── Windows-Server-DC.vdi            
 
 
 ```
