@@ -38,6 +38,7 @@ This investigation analyzes a phishing attempt that targeted a sales executive v
 The sales team of Greenholt PLC reported an unusual email from a regular business partner that did not match past communications. Fortunately the member of the team had enough phishing knowledge to understand this was worth reporting. Which included poor formatting, odd communication behavior and a random attachment.
 
 With the email saved to desktop, Thunderbird was used to review the email. Screenshot with highlights provided.
+
 ![Thunderbid Email Analysis](images/email-overview.png)
 
 Initial review, formatting doesn't look very professional from the start. Standard currency formatting is not used.
@@ -104,7 +105,7 @@ Regardless, the existence of this file is confirmed. With it being a `[.]com`,  
 
 # Technical Analysis
 
-This looks to be a phishing campaign targeting the sales team using a known business partner.
+This looks to be a phishing campaign targeting the sales team using a known business partner. Further details below.
 
 ## Email header display
 
