@@ -299,7 +299,7 @@ Verification of the Internal card with the new IP and subnet, `192.168.10.0/24` 
 
 ![Internal adapter IP verification](images/Pasted%20image%2020260416173608.png)
 
-(I did end up mixing the Internal Network and NAT cards with the names - Internet and Internal. I knew which was which, but the names are so similar and I typed the wrong one for each. I caught it, but I somehow created a second Internal card. Which leads to an issue later that I have to solve. Mentioned and documented in this section.)
+(I did end up mixing the Internal Network and NAT cards with the names - Internet and Internal. I knew which was which, but the names are so similar and I typed the wrong one for each. I caught it, but I somehow created a second Internal card during this process. Which leads to an issue later that I have to solve. Mentioned and documented the section [Remote Access Setup](#remote-access-setup).
 
 With the Internal Network setup, I'll use Server Manager to setup the Domain Controller. In Server Manager, I'll select "Add Roles and Features" to begin the process.
 
