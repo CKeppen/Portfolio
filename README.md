@@ -31,7 +31,7 @@ Here you will find detailed reports from my labs and personal projects.
 ## **Technical Skills and Certs**
 
 * **Certifications:** CompTIA Security+, Google Cybersecurity Professional  
-* **Core Skills:** SIEM, Incident Response, Documentation, Linux, Python, SQL
+* **Core Skills:** Data Analytics, Incident Response, Documentation, Linux, Python, SQL
 * **Platforms:** TryHackMe ([cody.keppen](https://tryhackme.com/p/cody.keppen))
 
 ## **Contact**
