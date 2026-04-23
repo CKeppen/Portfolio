@@ -18,6 +18,8 @@ Date: 04/22/2026
 
 These are some brief demonstrations using tcpdump and Wireshark. There are multiple `.pcap` files available to use. In which I'll filter, parse and analyze the data. Eventually finding malicious software.
 
+<br>
+
 #  Concepts Demonstrated
 
 1. **tcpdump** Understanding
@@ -28,14 +30,20 @@ These are some brief demonstrations using tcpdump and Wireshark. There are multi
 6. **CyberChef** Use
 7. Malware findings
 
+<br>
+
 ---
 # Instructional Steps
+
+These are the steps taken during this demonstration. There will be links throughout this section to the [Lessons Learned](#lessons-learned) section to notate obstacles, solutions and newly learned concepts during the demonstration.
+
+<br>
+
+## tcpdump Specific IP Host and Port Filter
 
 While in Kali as sudo, I'm going to analyze the pcap file called `magnitude_1hr.pcap`
 
 ![pcap file](images/Pasted%20image%2020260422190145.png)
-
-## tcpdump Specific IP Host and Port Filter
 
 In this instance, I need to look at the IP Host `192.168.99.52`
 
@@ -75,6 +83,8 @@ tcpdump -n -r magnitude_hr1.pcap host 192.168.99.52 and port 80 -c 5 -A
 
 ![](images/Pasted%20image%2020260422192118.png)
 
+<br>
+
 ## Analysis
 
 I would say seeing a `hxxp[://]www[.]bankofbotswana[.]bw/` and host `wilfredcostume[.]bamoon[.]com` is enough to look more into this.
@@ -92,6 +102,8 @@ The concern is seeing `FromBase64String` and the `IO.MemoryStream` object.
 I look up what `IO.MemoryStream` is and it looks to be a way to process data in memory. Which gives me the idea something doesn't want to be seen executing on disk.
 
 ![](images/Pasted%20image%2020260422195804.png)
+
+<br>
 
 ## CyberChef and WireShark Use
 
@@ -163,17 +175,21 @@ Here are my quick case notes for this demonstration.
 ---
 # Lessons Learned
 
+<br>
+
 ## ChatGPT can be a quick way to decode along side CyberChef
 
 Having ChatGPT on the side to throw the Base64 encoding into for quick analysis was interesting. It broke down the encoding methods for me to decode using CyberChef. While giving me a general idea of what the script is trying to do.
 
 I was having a hard time on that second Base64 encoding, but that fact that it identified Base64 decoding and a XOR obfuscation key allowed me to use CyberChef for the second decoding.
 
+<br>
 
 ## PowerShell In Memory Execution
 
 This is the process of running PowerShell scripts in RAM as to not have anything written to disk evade detection. In this example `IO.MemoryStream` was used with an Base64 encoded string. This becomes a fileless malware that is harder to detect for antivirus software.
 
+<br>
 
 ##  "MZARUH" and other IOCs for Cobalt Strike
 
@@ -183,6 +199,7 @@ With `GetModuleHandleA` and `GetProcAddress` memory is allocated and the now dec
 
 This is where the "MZARUH" decoded string shows up, as the two headers for Cobalt Strike, `magic_mz_x86` and `magic_mz_x64`, result in that decoded string.
 
+<br>
 
 ## "UVWATAUAVAWH" is a common string to find as it is opcodes (expand)
 
@@ -192,6 +209,7 @@ Nothing that should be alarming, but something to be aware of when hunting for s
 
 Meaning multiple pass throughs should occur when adjusting the minimum character limit as to not miss anything.
 
+<br>
 
 # Summary
 
