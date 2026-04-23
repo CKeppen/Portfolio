@@ -169,9 +169,11 @@ Having ChatGPT on the side to throw the Base64 encoding into for quick analysis 
 
 I was having a hard time on that second Base64 encoding, but that fact that it identified Base64 decoding and a XOR obfuscation key allowed me to use CyberChef for the second decoding.
 
+
 ## PowerShell In Memory Execution
 
 This is the process of running PowerShell scripts in RAM as to not have anything written to disk evade detection. In this example `IO.MemoryStream` was used with an Base64 encoded string. This becomes a fileless malware that is harder to detect for antivirus software.
+
 
 ##  "MZARUH" and other IOCs for Cobalt Strike
 
@@ -181,6 +183,7 @@ With `GetModuleHandleA` and `GetProcAddress` memory is allocated and the now dec
 
 This is where the "MZARUH" decoded string shows up, as the two headers for Cobalt Strike, `magic_mz_x86` and `magic_mz_x64`, result in that decoded string.
 
+
 ## "UVWATAUAVAWH" is a common string to find as it is opcodes (expand)
 
 From the post on "UVWATAUAVAH" this is a very common string to find in a Windows environment. These are a bunch of `PUSH` opcodes that create a large number of variations of this strings in HEX.
@@ -188,6 +191,8 @@ From the post on "UVWATAUAVAH" this is a very common string to find in a Windows
 Nothing that should be alarming, but something to be aware of when hunting for strings with HEX, as they can take up a lot of the screen. In my case, I moved the minimum character limit higher to filter these off, but if I didn't notice the "MZARUH" string in the beginning with the lower setting, I could have missed that Cobalt Strike IOC.
 
 Meaning multiple pass throughs should occur when adjusting the minimum character limit as to not miss anything.
+
+
 # Summary
 
 Using tcpdump, I found odd websites and hosts that led me to dig deeper with tcpdump. Once I found a packet worth following with FromBase64 strings, I moved to WireShark for the TCP Stream function.
