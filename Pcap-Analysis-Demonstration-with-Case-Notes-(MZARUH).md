@@ -8,7 +8,7 @@ Date: 04/22/2026
 - [Concepts Demonstrated](#concepts-demonstrated) 
 - [Instructional Steps](#instructional-steps)
 - [Case Notes](#case-notes)
-* [Lessons Learned](#lessons-learned)
+- [Lessons Learned](#lessons-learned)
 - [Summary](#summary)
 - [Resources](#resources)
 
