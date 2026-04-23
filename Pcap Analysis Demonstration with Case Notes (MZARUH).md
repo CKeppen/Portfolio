@@ -33,7 +33,7 @@ These are some brief demonstrations using tcpdump and Wireshark. There are multi
 
 While in Kali as sudo, I'm going to analyze the pcap file called `magnitude_1hr.pcap`
 
-![](images/Pasted image 20260422190145.png)
+![pcap file](images/Pasted image 20260422190145.png)
 
 ## tcpdump Specific IP Host and Port Filter
 
