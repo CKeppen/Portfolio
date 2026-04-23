@@ -89,13 +89,13 @@ tcpdump -n -r magnitude_hr1.pcap host 192.168.99.52 and port 80 -c 5 -A
 
 I would say seeing a `hxxp[://]www[.]bankofbotswana[.]bw/` and host `wilfredcostume[.]bamoon[.]com` is enough to look more into this.
 
-![](images/Pasted%20image%2020260422193602.png)
-
 Here I run the previous command but with `and tcp` to get some more GET requests and expanded the count to 10, `-c 10`.
 
 ```Bash
 tcpdump -n -r magnitude_hr1.pcap host 192.168.99.52 and port 80 and tcp -A -c 10
 ```
+
+![](images/Pasted%20image%2020260422193602.png)
 
 The concern is seeing `FromBase64String` and the `IO.MemoryStream` object.
 
@@ -107,7 +107,7 @@ I look up what `IO.MemoryStream` is and it looks to be a way to process data in 
 
 ## CyberChef and WireShark Use
 
-First I tried "From Base64" in CyberChef and eventually find the file to be compressed with Gzip using "Detect File Type". (When I went back and reviewed the tcpdump of the GET packet, it did mention gzip encoding.)
+First I tried "From Base64" in CyberChef and eventually find the file to be compressed with Gzip using "Detect File Type". (When I went back and reviewed the tcpdump of the GET packet, it did mention gzip encoding. This could have been caught sooner.)
 
 ![](images/Pasted%20image%2020260422195329.png)
 
@@ -115,7 +115,7 @@ But when I went to unzip the string, I got an error. Which I assumed was that I 
 
 ![](images/Pasted%20image%2020260422201323.png)
 
-In a way to quickly get the string, I go to WireShark.
+In a way to quickly get the full string, I go to WireShark.
 
 Using the filter, ``ip.addr==192.168.99.52 && ip.addr==68.183.138.51`` I find a `GET` packet. Then right click and use, Follow > TCP Stream to get the Request and Response to find the full string.
 
