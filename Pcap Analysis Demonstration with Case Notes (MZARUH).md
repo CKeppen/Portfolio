@@ -33,7 +33,7 @@ These are some brief demonstrations using tcpdump and Wireshark. There are multi
 
 While in Kali as sudo, I'm going to analyze the pcap file called `magnitude_1hr.pcap`
 
-![[Pasted image 20260422190145.png]]
+![](images/Pasted image 20260422190145.png)
 
 ## tcpdump Specific IP Host and Port Filter
 
@@ -45,7 +45,7 @@ I use the following to get these first 5 lines from the `.pcap`.
 tcpdump -n -r magnitude_hr1.pcap host 192.168.99.52 -c 5
 ```
 
-![[Pasted image 20260422190534.png]]
+![](images/Pasted image 20260422190534.png)
 
 I used the `-c 5` flag to keep the screenshot clean, only showing the first 5 results.
 
@@ -57,7 +57,7 @@ The `-r` flag along with the `.pcap` is to read the file.
 
 Looking at the results, you can see a timestamp, protocol, source IP and Port to destination IP and Port, different flags and data size.
 
-![[Pasted image 20260422191355.png]]
+![](images/Pasted image 20260422191355.png)
 
 Let's say I now need to narrow this down to a specific port, like port `80` for HTTP, I add `and port 80`.
 
@@ -65,7 +65,7 @@ Let's say I now need to narrow this down to a specific port, like port `80` for 
 tcpdump -n -r magnitude_hr1.pcap host 192.168.99.52 and port 80 -c 5
 ```
 
-![[Pasted image 20260422191620.png]]
+![](images/Pasted image 20260422191620.png)
 
 I see a `GET` request, so let's run a the ASCII decode flag `-A` to get a better idea of what is in the payload.
 
@@ -73,13 +73,13 @@ I see a `GET` request, so let's run a the ASCII decode flag `-A` to get a better
 tcpdump -n -r magnitude_hr1.pcap host 192.168.99.52 and port 80 -c 5 -A
 ```
 
-![[Pasted image 20260422192118.png]]
+![](images/Pasted image 20260422192118.png)
 
 ## Analysis
 
 I would say seeing a `hxxp[://]www[.]bankofbotswana[.]bw/` and host `wilfredcostume[.]bamoon[.]com` is enough to look more into this.
 
-![[Pasted image 20260422193602.png]]
+![](images/Pasted image 20260422193602.png)
 
 Here I run the previous command but with `and tcp` to get some more GET requests and expanded the count to 10, `-c 10`.
 
@@ -91,57 +91,57 @@ The concern is seeing `FromBase64String` and the `IO.MemoryStream` object.
 
 I look up what `IO.MemoryStream` is and it looks to be a way to process data in memory. Which gives me the idea something doesn't want to be seen executing on disk.
 
-![[Pasted image 20260422195804.png]]
+![](images/Pasted image 20260422195804.png)
 
 ## CyberChef and WireShark Use
 
 First I tried "From Base64" in CyberChef and eventually find the file to be compressed with Gzip using "Detect File Type". (When I went back and reviewed the tcpdump of the GET packet, it did mention gzip encoding.)
 
-![[Pasted image 20260422195329.png]]
+![](images/Pasted image 20260422195329.png)
 
 But when I went to unzip the string, I got an error. Which I assumed was that I didn't have the full string, causing a cutoff of the string.
 
-![[Pasted image 20260422201323.png]]
+![](images/Pasted image 20260422201323.png)
 
 In a way to quickly get the string, I go to WireShark.
 
 Using the filter, ``ip.addr==192.168.99.52 && ip.addr==68.183.138.51`` I find a `GET` packet. Then right click and use, Follow > TCP Stream to get the Request and Response to find the full string.
 
-![[Pasted image 20260422200933.png]]
+![](images/Pasted image 20260422200933.png)
 
 Now I can see a script and another Base64 string embedded. Which I'm going to assume is a payload.
 
-![[Pasted image 20260422200622.png]]
+![](images/Pasted image 20260422200622.png)
 
 I tried to decode this one, but couldn't. Generated hashes and checked VirusTotal, found nothing.
 
-![[Pasted image 20260422201822.png]]
+![](images/Pasted image 20260422201822.png)
 
 I did run the decoded script through ChatGPT for quick analysis. Which confirmed the malware traits of "PowerShell in memory exection". Avoiding detection with `IO.MemoryStream`, calling functions from memory, using the Base64String in the code as a hidden payload. I talk about this more in the [Lessons Learned](#lessons-learned) section.
 
 Additionally, the below from ChatGPT gives me information I can use to decode the second string as it mentions an XOR obfuscation key.
 
-![[Pasted image 20260422204832.png]]
+![](images/Pasted image 20260422204832.png)
 
 Going back to CyberChef, I use From Base64, XOR with the key of 35, then look for strings and get plenty of hits of strings.
 
-![[Pasted image 20260422204742.png]]
+![](images/Pasted image 20260422204742.png)
 
 I ended up at the Minimum length of 16 just to get rid of the random "WATAUAVAH" strings.
 
-![[Pasted image 20260422205034.png]]
+![](images/Pasted image 20260422205034.png)
 
 I found a [light hearted site](https://www.hexacorn.com/blog/2013/05/16/uvwatauavawh-meet-the-pushy-string/) that explains these as opcodes.
 
-![[Pasted image 20260422205210.png]]
+![](images/Pasted image 20260422205210.png)
 
 Of concern is with the default minimum length of 4, revealing `MZARUH`. Which is an IOC for Cobalt Strike.
 
-![[Pasted image 20260422210406.png]]
+![](images/Pasted image 20260422210406.png)
 
 I found a [DFIR Report execution section](https://thedfirreport.com/2024/04/29/from-icedid-to-dagon-locker-ransomware-in-29-days/#execution) on Cobalt Strike that provides some more IOC's of Cobalt Strike that I found in the initial decoding. I go in more details in the [Lessons Learned](#lessons-learned) section.
 
-![[Pasted image 20260423124545.png]]
+![](images/Pasted image 20260423124545.png)
 # Case Notes
 
 Here are my quick case notes for this demonstration.
@@ -151,14 +151,14 @@ Here are my quick case notes for this demonstration.
 	- HTTP: `hxxp[://]www[.]bankofbotswana[.]bw/`
 	- Host: `wilfredcostume[.]bamoon[.]com`	  
 	- Found `FromBase64String` in GET request with `IO.MemoryStream` object creation	
-	![[Pasted image 20260422193602.png]]
+	![](images/Pasted image 20260422193602.png)
 -  Using Wireshark TCP Stream, found the full string and decoded on CyberChef using FromBase64 and Gunzip. (In a real setting, I would provide a full attachment.)
 - String included `func_get_proc_address` and `func_get_delegate_type`, supporting "PowerShell In Memory Execution" tactics to hide execution in memory, avoiding disk writing
 - Found another Base64String inside the script, assume to be payload
 - First script included Base64 and XOR-obfuscation key of `35` 
 - Using CyberChef with Base64 and XOR-obfuscation for embedded encoded script, found `MZARUH`, known Cobalt Strike string (Would include file attachment.)
 - **Escalation: IOC of Cobalt Strike found**
-  ![[Pasted image 20260422212230.png]]
+  ![](images/Pasted image 20260422212230.png)
 
 ---
 # Lessons Learned
