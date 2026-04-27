@@ -182,7 +182,7 @@ I tried to test the other users but had no success, as I got "no-access" and "Ac
 
 ![](images/Pasted%20image%2020260427121651.png)
 
-(I looked more into the different accounts found in the [Lessons Learned](#lessons-learned) section.)
+(I looked more into the different accounts found in the [Lessons Learned](#failed-account-attempts) section.)
 
 ### Tshark Packet Review Vulnerable System
 
