@@ -509,7 +509,6 @@ These are built in Windows accounts that are disabled by default. Very unlikely 
 
 ![](images/Pasted%20Image%2020260426214400.png)
 
-<br>
 
 # Summary
 
