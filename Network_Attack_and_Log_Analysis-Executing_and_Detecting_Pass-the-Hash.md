@@ -94,6 +94,7 @@ You can see the packet capture occurring in the background.
 Here I'll start using my Kali terminal for an nmap scan to find open ports. First I'll need the IP of the Windows device. Which is, `10.10.71.19`.
 
 ![](images/Pasted%20image%2020260427120124.png)
+
 Now on the Kali in root, I run the IP with nmap to start the port scan.
 
 ```bash
@@ -200,6 +201,7 @@ Now I'll check the NTLM handshake of my three connection attempts. More details 
 ```powershell
 tshark -r .\nmap_fw_off.pcap -Y "ntlmssp or smb2"
 ```
+---
 
 **Administrator login with password**
 
@@ -212,19 +214,25 @@ Here you can see a three step process.
 
 ![](images/Pasted%20image%2020260427124537.png)
 
+---
+
 **Administrator login with hash**
 
 Here you can see the same exact sequence when using the hash as the password, not the `password1234` string, and still successfully connecting.
 
 ![](images/Pasted%20image%2020260427123549.png)
 
-**Attempted DefaultAccount login with hash
+---
+
+**Attempted DefaultAccount login with hash**
 
 I tried to log into the default account using the hash from the hashdump. You can see the same sequence, except at the end where you see an error response and no encrypted connections.
 
 ![](images/Pasted%20image%2020260427123715.png)
 
 I tried the other accounts, but discovered they are all disable by default as well, [Lessons Learned](#failed-account-attempts)
+
+---
 
 **Further investigation with WireShark**
 
@@ -463,9 +471,9 @@ aad3b435b51404eeaad3b435b51404ee:d4a1be1776ad10df103812b1a923cde4
 
 With the NTLM password hash captured, it is used with `NTLM` (NT LAN Manager) to authenticate at the NTLM level. Passing the hash straight into the authentication process of,
 
-`NEGOTIATE` = Client declares it wants to authenticate with NTLM
-`CHALLENGE` = Server sends a random number to combine with hash
-`AUTH` = Client returns hash combined with the random number
+`NEGOTIATE` = Client declares it wants to authenticate with NTLM <br>
+`CHALLENGE` = Server sends a random number to combine with hash <br>
+`AUTH` = Client returns hash combined with the random number <br>
 
 The server then does the same calculations for the hash and random number to verify they match the stored hash and generated random number.
 
@@ -485,9 +493,9 @@ I actually tried to log into each account I got a hash for and was denied on all
 
 These are built in Windows accounts that are disabled by default. Very unlikely to be able to log into this from the beginning.
 
-`WDAGUtilityAccount` is for Windows Defender
-`DefaultAccount` account used for Windows apps
-`Guest` built in limited access account.
+`WDAGUtilityAccount` is for Windows Defender <br>
+`DefaultAccount` account used for Windows apps <br>
+`Guest` built in limited access account. <br>
 
 ![](images/Pasted%20Image%2020260426214400.png)
 
