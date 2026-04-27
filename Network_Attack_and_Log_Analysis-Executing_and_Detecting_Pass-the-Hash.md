@@ -448,11 +448,15 @@ A Pass-The-Hash Attack is the use of hashed passwords for login. In an attempt t
 
 Furthermore, when you log into Windows, it converts the password string you enter at login into a hash, then compares it to your stored hashed password to authenticate they match.
 
+<br>
+
 ## SMB Ports
 
 The use of the `SMB/psexec` attack in Metasploit takes advantage of this. Using the windows Server Message Block (SMB) protocol for remote administration, allowing commands to be run remotely on SMB.
 
 Using compromised admin credentials, a connection is established over SMB port `445`.
+
+<br>
 
 ## Hash structure
 
@@ -467,6 +471,8 @@ aad3b435b51404eeaad3b435b51404ee:d4a1be1776ad10df103812b1a923cde4
 `aad3b435b51404eeaad3b435b51404ee` is the LM Hash
 `d4a1be1776ad10df103812b1a923cde4` is the NTLM hash
 
+<br>
+
 ## NTLM with Pass-The-Hash
 
 With the NTLM password hash captured, it is used with `NTLM` (NT LAN Manager) to authenticate at the NTLM level. Passing the hash straight into the authentication process of,
@@ -479,6 +485,8 @@ The server then does the same calculations for the hash and random number to ver
 
 Because this attack is injecting the hash password, it can be hard to determine if the login was using a plaintext password or hashed password.
 
+<br>
+
 ## Reverse TCP
 
 Reverse TCP allows the payload to understand which IP to contact and from which IP, to establish a connection once executed.
@@ -486,6 +494,8 @@ Reverse TCP allows the payload to understand which IP to contact and from which 
 The reverse tcp connection is an attempt to bypass firewall rules that typically block inbound connections. This establishes an outbound connection.
 
 Adding a layer of evasion from being detected.
+
+<br>
 
 ## Failed Account Attempts
 
@@ -498,6 +508,8 @@ These are built in Windows accounts that are disabled by default. Very unlikely 
 `Guest` built in limited access account. <br>
 
 ![](images/Pasted%20Image%2020260426214400.png)
+
+<br>
 
 # Summary
 
