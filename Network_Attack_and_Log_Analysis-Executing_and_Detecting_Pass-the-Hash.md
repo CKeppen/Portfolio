@@ -60,7 +60,7 @@ Now I'll find the interfaces available to start capturing the packets using the 
 tshark -D
 ```
 
-![](Attachments/Pasted%20image%2020260426205633.png)
+![](images/Pasted%20image%2020260426205633.png)
 
 Ethernet 3 is the fourth select. 
 
@@ -87,13 +87,13 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 
 You can see the packet capture occurring in the background.
 
-![](Attachments/Pasted%20image%2020260426210716.png)
+![](images/Pasted%20image%2020260426210716.png)
 
 ### Nmap Scan of Vulnerable System
 
 Here I'll start using my Kali terminal for an nmap scan to find open ports. First I'll need the IP of the Windows device. Which is, `10.10.71.19`.
 
-![](Attachments/Pasted%20image%2020260427120124.png)
+![](images/Pasted%20image%2020260427120124.png)
 Now on the Kali in root, I run the IP with nmap to start the port scan.
 
 ```bash
@@ -102,7 +102,7 @@ nmap 10.10.71.19
 
 I see 4 open ports from the scan with the firewall turned off.
 
-![](Attachments/Pasted%20image%2020260427120253.png)
+![](images/Pasted%20image%2020260427120253.png)
 
 ### Pass the Hash Attack of Vulnerable System
 
@@ -122,7 +122,7 @@ ifconfig eth0
 
 Then I'm going to start Metasploit with the following.
 
-![](Attachments/Pasted%20image%2020260427120448.png)
+![](images/Pasted%20image%2020260427120448.png)
 
 ```Bash
 msfconsole -q
@@ -150,11 +150,11 @@ set SMBPASS password1234
 exploit
 ```
 
-![](Attachments/Pasted%20image%2020260427120928.png)
+![](images/Pasted%20image%2020260427120928.png)
 
 A successful connection is made, confirmed with `pwd` showing the Windows `C:\` drive while in the Kali terminal.
 
-![](Attachments/Pasted%20image%2020260427121121.png)
+![](images/Pasted%20image%2020260427121121.png)
 
 The following commands are then used as the Administrator to dump the hashes and then quit the connection to the Windows machine.
 
@@ -162,7 +162,7 @@ The following commands are then used as the Administrator to dump the hashes and
 hashdump
 ```
 
-![](Attachments/Pasted%20image%2020260427121229.png)
+![](images/Pasted%20image%2020260427121229.png)
 
 With the hashdump, I now have the account name and hashed password of different users. I'm going to replace the password `password1234` with the hash for the admin. To attempt a login. So instead of using the `password1234` string for the login, I'll be using the hash string.
 
@@ -173,13 +173,13 @@ set SMBPASS aad3b435b51404eeaad3b435b51404ee:d4a1be1776ad10df103812b1a923cde4
 exploit
 ```
 
-![](Attachments/Pasted%20image%2020260427121441.png)
+![](images/Pasted%20image%2020260427121441.png)
 
 As you can see, I'm able to login still, even though I replaced the password of the administrator for the hash of that password. Which works because it's the hash that Windows does the check against. Even though the passwords are not stored in plain text, a successful login is still possible just by using the hashed credentials.
 
 I tried to test the other users but had no success, as I got "no-access" and "Account_Disabled" errors. Which look to be disabled accounts I can't log into on this VM environment.
 
-![](Attachments/Pasted%20image%2020260427121651.png)
+![](images/Pasted%20image%2020260427121651.png)
 
 (I looked more into the different accounts found in the [Lessons Learned](#lessons-learned) section.)
 
@@ -193,7 +193,7 @@ First I'm going to check the SMB ports and I see plenty of `SYN`, `SYN, ACK` and
 tshark -r nmap_fw_off.pcap -Y "tcp.port==445 or tcp.port==139 or tcp.port==135"
 ```
 
-![](Attachments/Pasted%20image%2020260427122145.png)
+![](images/Pasted%20image%2020260427122145.png)
 
 Now I'll check the NTLM handshake of my three connection attempts. More details on NTLM here, [Lessons Learned](#ntlm-with-pass-the-hash)
 
@@ -210,19 +210,19 @@ Here you can see a three step process.
 3. With the exchange of the password with `NTLMSSP_AUTH` 
 4. Finally with a `Setup Response` followed by multiple `Encrypted SMB3` lines, showing an encrypted connection.
 
-![](Attachments/Pasted%20image%2020260427124537.png)
+![](images/Pasted%20image%2020260427124537.png)
 
 **Administrator login with hash**
 
 Here you can see the same exact sequence when using the hash as the password, not the `password1234` string, and still successfully connecting.
 
-![](Attachments/Pasted%20image%2020260427123549.png)
+![](images/Pasted%20image%2020260427123549.png)
 
 **Attempted DefaultAccount login with hash
 
 I tried to log into the default account using the hash from the hashdump. You can see the same sequence, except at the end where you see an error response and no encrypted connections.
 
-![](Attachments/Pasted%20image%2020260427123715.png)
+![](images/Pasted%20image%2020260427123715.png)
 
 I tried the other accounts, but discovered they are all disable by default as well, [Lessons Learned](#failed-account-attempts)
 
@@ -232,20 +232,20 @@ Using the `nmap_fw_off.pcap` file in WireShark, I want to do a TCP Stream check 
 
 With just `smb2` in the filter bar, I can already see the three account login attemps.
 
-![](Attachments/Pasted%20image%2020260427133351.png)
+![](images/Pasted%20image%2020260427133351.png)
 
 I'll do a TCP Stream search of one of the Admin connections. This will list out the order of the TCP connection so I can easily follow along what is occurring.
 
-![](Attachments/Pasted%20image%2020260427133446.png)
+![](images/Pasted%20image%2020260427133446.png)
 
 Now I can see the original TCP connection to `port 445`, with a `SYN` origination from the Kali `10.10.97.23` to the Windows machine `10.10.71.19`, with a successful connection with the `ACK` flag.
 
 Below is the NTLM login phase with an encrypted connection after the `Session Setup Response`.
 
-![](Attachments/Pasted%20image%2020260427133755.png)
+![](images/Pasted%20image%2020260427133755.png)
 
 I did the same for the DefaultAccount login attempt, where you can see the break in the connection at the end.
-![](Attachments/Pasted%20image%2020260427134200.png)
+![](images/Pasted%20image%2020260427134200.png)
 
 ---
 ## Hardened System Attack
@@ -280,7 +280,7 @@ netsh advfirewall set allprofiles state on
 Set-MpPreference -DisableRealtimeMonitoring $false
 ```
 
-![](Attachments/Pasted%20image%2020260427143158.png)
+![](images/Pasted%20image%2020260427143158.png)
 
 ### Turn on Firewalls logs
 
@@ -292,7 +292,7 @@ netsh advfirewall set allprofiles logging allowedconnections enable
 netsh advfirewall set allprofiles logging filename "C:\Windows\System32\LogFiles\Firewall\pfirewall.log"
 ```
 
-![](Attachments/Pasted%20image%2020260427143237.png)
+![](images/Pasted%20image%2020260427143237.png)
 
 Confirm:
 
@@ -300,7 +300,7 @@ Confirm:
 netsh advfirewall show allprofiles logging
 ```
 
-![](Attachments/Pasted%20image%2020260427143300.png)
+![](images/Pasted%20image%2020260427143300.png)
 
 ### Nmap Scan of Hardened System
 
@@ -312,7 +312,7 @@ nmap 10.10.99.119
 
 There is already a noticeable difference in the number of open ports. We've gone from 4 open ports, to just the one `ms-wbt-server`.
 
-![](Attachments/Pasted%20image%2020260427143633.png)
+![](images/Pasted%20image%2020260427143633.png)
 
 ### Pass the Hash Attack of Hardened System
 
@@ -327,7 +327,7 @@ set SMBPASS password1234
 exploit
 ```
 
-![](Attachments/Pasted%20image%2020260427143941.png)
+![](images/Pasted%20image%2020260427143941.png)
 
 And we are blocked. Exploit initiated, but no session was completed. The Firewall successfully blocked the attack.
 
@@ -353,7 +353,7 @@ Right now it is a lot of information. So I'll do some filtering.
 Select-String "DROP" $fwlog
 ```
 
-![](Attachments/Pasted%20image%2020260427144653.png)
+![](images/Pasted%20image%2020260427144653.png)
 
 Here I can see all the SMB port `135, 139 and 445` dropped connections. All coming from the Kali attacker, `10.10.105.215`.
 
@@ -363,7 +363,7 @@ Now I'd like to take a look at only the attacker IP. I do want to point out, the
 Select-String "10.10.105.215" $fwlog
 ```
 
-![](Attachments/Pasted%20image%2020260427145127.png)
+![](images/Pasted%20image%2020260427145127.png)
 
 ### Tshark Packet Review of Hardened System
 
@@ -373,7 +373,7 @@ Now to try Tshark, looking at the same SMB ports in the earlier attack.
 tshark -r nmap_fw_on.pcap -Y "tcp.port==445 or tcp.port==135 or tcp.port==139"
 ```
 
-![](Attachments/Pasted%20image%2020260427145620.png)
+![](images/Pasted%20image%2020260427145620.png)
 
 You'll see only `SYN` packets, but after that, everything is dropped. No `SYN, ACK` or `ACK` flags found.
 
@@ -385,7 +385,7 @@ tshark -r nmap_fw_on.pcap -Y "ntlmssp or smb2"
 
 No results!
 
-![](Attachments/Pasted%20image%2020260427145927.png)
+![](images/Pasted%20image%2020260427145927.png)
 ### WireShark Packet Review of Hardened System
 
 Now let's check WireShark.
@@ -394,11 +394,11 @@ Using the Kali IP as the filter with TCP connections, I do find port `3389` agai
 
 `ip.src==10.10.105.215 && tcp`
 
-![](Attachments/Pasted%20image%2020260427151022.png)
+![](images/Pasted%20image%2020260427151022.png)
 
 When I do a TCP Stream, I don't see any further connections.
 
-![](Attachments/Pasted%20image%2020260427151123.png)
+![](images/Pasted%20image%2020260427151123.png)
 
 Now I'll check to see if the Windows responded back with any connection, `[SYN, ACK]`.
 
@@ -406,7 +406,7 @@ Now I'll check to see if the Windows responded back with any connection, `[SYN, 
 
 The results are just the open `3389` port from before, which had no other connections.
 
-![](Attachments/Pasted%20image%2020260427152114.png)
+![](images/Pasted%20image%2020260427152114.png)
 
 # Case Notes
 
@@ -489,7 +489,7 @@ These are built in Windows accounts that are disabled by default. Very unlikely 
 `DefaultAccount` account used for Windows apps
 `Guest` built in limited access account.
 
-![](Attachments/Pasted%20Image%2020260426214400.png)
+![](images/Pasted%20Image%2020260426214400.png)
 
 # Summary
 
