@@ -1,4 +1,4 @@
-# Cybersecurity Incident Report
+# Cybersecurity Incident Report:
 
 | Indicators that led to discovery of incident |
 | :--- |
