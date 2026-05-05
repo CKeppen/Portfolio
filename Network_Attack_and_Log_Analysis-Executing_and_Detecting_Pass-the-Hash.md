@@ -1,5 +1,5 @@
 # Network Attack and Log Analysis - Executing and Detecting Pass-the-Hash
-By: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
+By: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/) <br>
 Date: 04/23/2026
 
 ---
