@@ -1,15 +1,20 @@
 # **Cody Keppen's Cybersecurity Portfolio**
 
 Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in cybersecurity.
-As an entry-level SOC Analyst with 9 years of experience in quality assurance and data integrity, I focus on applying rigorous, data-driven analysis to security challenges.
+
+I specialize in high-velocity anomaly detection and delivering data-driven results.
+
+With a decade of experience in the high-stakes mortgage industry—rising from Data Entry to Director of Quality and Operations—I’ve mastered the art of auditing thousands of data points to identify, triage, and remediate systemic production errors. I am now pivoting this "detective" mindset into Cybersecurity.
+
+My long-term interest is Identity & Access Management (IAM) and SOC Analysis, while using my troubleshooting and quality skills in an IT Help Desk or Technical Support capacity to build a foundation in enterprise infrastructure.
 
 ## **Projects & Write-Ups**
 
 Here you will find detailed reports from my labs and personal projects.
 
 * **Home Lab Setups**
-    * [**Windows Virtual Machine Environment Setup** - 02/04/2026](https://github.com/CKeppen/Portfolio/blob/main/MS%20Home%20Lab%20VM%20Setup.md): This is my more advanced home lab setup with a full Windows Environment. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM.
-    * [**First Home Lab Creation - Kali/Metasploitable2** - 11/02/2026](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
+    * [**Current Windows Virtual Machine Environment Setup**](https://github.com/CKeppen/Portfolio/blob/main/MS%20Home%20Lab%20VM%20Setup.md): This is my more advanced home lab setup with a full Windows Environment. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM.
+    * [**First Home Lab Creation - Kali/Metasploitable2**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
 
 * **Phishing Analysis**
   * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
