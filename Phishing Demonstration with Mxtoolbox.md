@@ -1,7 +1,7 @@
 # Phishing Demonstration with Mxtoolbox 
-Author: Cody Keppen
+**Author: Cody Keppen**Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
 
-Date: 1/13/2026
+Last Updated: 4/19/2026
 
 # Table of Contents
 - [Summary of exercise](#summary-of-exercise)
