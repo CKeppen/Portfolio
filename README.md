@@ -1,6 +1,6 @@
 # **Cody Keppen's Cybersecurity Portfolio**
 
-Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in cybersecurity.
+Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in IT\Cybersecurity.
 
 I specialize in high-velocity anomaly detection and delivering data-driven results.
 
