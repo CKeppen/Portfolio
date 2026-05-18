@@ -2,7 +2,7 @@
 
 Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in IT\Cybersecurity.
 
-I specialize in high-velocity anomaly detection and delivering data-driven results.
+I specialize in high-velocity anomaly detection and delivering data-driven results from my Quality Inspection and Production background.
 
 With a decade of experience in the high-stakes mortgage industry—rising from Data Entry to Director of Quality and Operations—I’ve mastered the art of auditing thousands of data points to identify, triage, and remediate systemic production errors. I am now pivoting this "detective" mindset into Cybersecurity.
 
