@@ -26,7 +26,7 @@ The Client will be used by the "Users" acting like regular employees. Demonstrat
 
 #  Concepts Demonstrated
 
-1. [Creation of Multiple Organization Units and Users](#creating-the-organization-units-and-users)
+1. [Creation of Multiple Organization Units and Users](#setting-up-the-corporate-environment)
 2. [Security Group Creation](#security-group-creation)
 	1. [IT Admin Group Permissions](#rdp-access-and-admin-hardening)
 		1. [RDP Access](#rdp-access)
