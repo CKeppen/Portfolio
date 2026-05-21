@@ -1069,7 +1069,7 @@ These will be the policies I'll be modifying to allow these events to generate i
 
 I get here with by editing the "Default Domain Policy", then going the following path.
 
-**Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Audit Policy
+**Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Audit Policy**
 
 Then, going into each, I right click, select "Properties", then mark "Success" and "Failure".
 
@@ -1208,7 +1208,7 @@ I add Ryan to the `Operations` OU and make him a member of the `Operations_Acces
 
 ![](images/MS_AD_Environment/Pasted%20image%2020260513144006.png)
 
-(I later caught I forgot to add Ryan to the `All_Employees` group during [Verification](#verification). He was later added, shown below).
+(I later caught I forgot to add Ryan to the `All_Employees` group during [Verification](#verification-section). He was later added, shown below).
 
 ![](images/MS_AD_Environment/Pasted%20image%2020260514121243.png)
 
