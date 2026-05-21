@@ -1002,10 +1002,10 @@ Going to the Event Viewer, then Windows Logs and right clicking Security, I sele
 
 The Event IDs I'll be looking for are `4625, 4740, 4724, 4767`
 
-4625 - Failed Logon Attempts
-4740 - Account Lockout
-4724 - Password Reset by Admin
-4767 - Account Unlock
+4625 - Failed Logon Attempts <br>
+4740 - Account Lockout <br>
+4724 - Password Reset by Admin <br>
+4767 - Account Unlock <br>
 
 ![](images/MS_AD_Environment/Pasted%20image%2020260512221344.png)
 
@@ -1521,10 +1521,10 @@ Using Event Viewer, I can see a lot of different login activity that is useful. 
 
 I can filter for specific Events like the following.
 
-4625 - Failed Logon Attempts
-4740 - Account Lockout
-4724 - Password Reset by Admin
-4767 - Account Unlock
+4625 - Failed Logon Attempts <br>
+4740 - Account Lockout <br>
+4724 - Password Reset by Admin <br>
+4767 - Account Unlock <br>
 
 You'll notice in the same time frame from of 5/19, events are split between the Server and Client.
 
