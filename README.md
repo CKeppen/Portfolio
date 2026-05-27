@@ -1,6 +1,6 @@
 # **Cody Keppen's Cybersecurity Portfolio** 
 
-Last Updated: 5/21/2026
+Last Updated: 5/26/2026
 
 ---
 
@@ -10,7 +10,7 @@ I specialize in high-velocity anomaly detection and delivering data-driven resul
 
 With a decade of experience in the high-stakes mortgage industry—rising from Data Entry to Director of Quality and Operations—I’ve mastered the art of auditing thousands of data points to identify, triage, and remediate systemic production errors. I am now pivoting this "detective" mindset into Cybersecurity.
 
-My long-term interest is Identity & Access Management (IAM) and SOC Analysis, while using my troubleshooting and quality skills in an IT Help Desk or Technical Support capacity to build a foundation in enterprise infrastructure.
+My long-term interest is Identity & Access Management (IAM) and SOC Analysis, while using home lab to continue expanding my foundational IT knowledge.
 
 ## **Projects & Write-Ups**
 
