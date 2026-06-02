@@ -21,6 +21,9 @@ Here you will find detailed reports from my labs and personal projects.
     * [**Windows Enterprise Environment with AD DS**](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md): A Windows Enterprise Environment with a Windows Server running AD DS and a Windows 10 Client, simulating a corporate work environment with users across multiple departments. Built to practice IT admin concepts and offensive/defensive cybersecurity techniques.
     * [**First Home Lab Creation - Kali/Metasploitable2**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
 
+* **SIEM**
+   * [**Elastic SIEM**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simply use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
+
 * **Phishing Analysis**
   * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
 
