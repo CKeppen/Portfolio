@@ -21,7 +21,7 @@ Full-text search and analytics engine for JSON-formatted documents.
 **Kibana**:
 Web-based data visualization tool using the data for a dashboard.
 
-![[Pasted image 20251227160152.png]]
+![](images/Pasted%20image%2020251227160152.png)
 
 ## Concepts
 
@@ -42,13 +42,13 @@ The Discover tab is the main tab to see ingested logs for searching and filterin
 
 In this example I am looking at logs from Dec 31, 2021 to Feb 2, 2022.
 
-![[Pasted image 20251227162712.png]]
+![](images/Pasted%20image%2020251227162712.png)
 
 ## Quick filter
 
 I want to see the IP source that has the highest number of connections. I go to the Index column on the left, select `source_ip`, and see the top source IP connections.
 
-![[Pasted image 20251227162906.png]]
+![](images/Pasted%20image%2020251227162906.png)
 
 ## Investigating spikes
 
@@ -56,7 +56,7 @@ In the previous timeline screen, I can see a spike in connections on Jan 11. I c
 
 With that date now filtered on, I go back to the index column to find the `source_ip` to find which has the most connections. The quick filter shows `172.201.60.191` as the highest. Which is worth investigating.
 
-![[Pasted image 20251227163158.png]]
+![](images/Pasted%20image%2020251227163158.png)
 
 ## Excluding Data
 
@@ -64,11 +64,11 @@ Here I need to look at connection `238.163.231.224` but not in the state of New 
 
 I set my date timeline from Dec to Feb. I go to the search bar and use `source_ip : 238.163.231.224` then go to the index column, select `source_state` and click the minus sign for New York. Which creates a `NOT` filter for New York, only leaving Michigan as the only state.
 
-![[Pasted image 20251227163734.png]]
+![](images/Pasted%20image%2020251227163734.png)
 
 I could also use the `+ Add Filter` option at the top in the following manner for the same result.
 
-![[Pasted image 20251227163846.png]]
+![](images/Pasted%20image%2020251227163846.png)
 
 ## Custom tables
 
@@ -78,7 +78,7 @@ This creates a `Selected fields` section in the index column on the left showing
 
 Now on the right side, I can quickly see these data points when scrolling through the logs.
 
-![[Pasted image 20251227164212.png]]
+![](images/Pasted%20image%2020251227164212.png)
 
 ## KQL
 
@@ -92,7 +92,7 @@ I'd do a search with the following to see if there were any connections for furt
 
 `UserName: "Johny Brown"`
 
-![[Pasted image 20251227170128.png]]
+![](images/Pasted%20image%2020251227170128.png)
 
 ## Visualization
 
@@ -100,23 +100,23 @@ With the above examples, there does appear to be an issue with failed logins. Wi
 
 In the below, I'll go to `source_ip` then click `Visualize` at the bottom of the Top 5 values.
 
-![[Pasted image 20251227171041.png]]
+![](images/Pasted%20image%2020251227171041.png)
 
 I'll now be in the Visualize Library dashboard, where I'll create this filter to find the failed logins to report on.
 
-![[Pasted image 20251227171336.png]]
+![](images/Pasted%20image%2020251227171336.png)
 
 I'm going to change the visualization chart to a table. Then click and drag `UserName` and `source_ip` to the Rows section of the table.
 
-![[Pasted image 20251227171727.png]]
+![](images/Pasted%20image%2020251227171727.png)
 
 I will do a little cleanup on the title of the data sets for better presentation.
 
-![[Pasted image 20251227171809.png]]
+![](images/Pasted%20image%2020251227171809.png)
 
 There is also the ability to create multiple windows and save the visualizations into a live dashboard.
 
-![[Pasted image 20251227172051.png]]
+![](images/Pasted%20image%2020251227172051.png)
 
 ---
 ## Summary:
