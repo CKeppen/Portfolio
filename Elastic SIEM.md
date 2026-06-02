@@ -1,6 +1,8 @@
-Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
-Date: 06/02/2026
-Source: https://tryhackme.com/room/investigatingwithelk101
+# Elastic SIEM
+
+Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/) <br>
+Date: 06/02/2026 <br>
+Source: [Investigating the ELK 101 - THM](https://tryhackme.com/room/investigatingwithelk101) </br>
 
 ---
 # Objective:
@@ -25,7 +27,7 @@ Web-based data visualization tool using the data for a dashboard.
 
 - [Filtering](#filtering)
 - [Quick filter](#quick-filter)
-- [Investigating Spikes](#investigating spikes)
+- [Investigating Spikes](#investigating-spikes)
 - [Excluding Data](#excluding-data)
 - [Custom Tables](#custom-tables)
 - [KQL](#kql)
