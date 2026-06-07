@@ -1,6 +1,6 @@
 # **Cody Keppen's Cybersecurity Portfolio** 
 
-Last Updated: 6/02/2026
+Last Updated: 6/07/2026
 
 ---
 
@@ -26,6 +26,9 @@ Here you will find detailed reports from my labs and personal projects.
 
 * **Phishing Analysis**
   * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
+ 
+* **GRC**
+  *[**CIS Controls v8 Assessment**](https://github.com/CKeppen/Portfolio/blob/main/CIS_Controls_v8_Assessment.md ): Security Control assessment using CIS Controls v8 to assess the security of the [Windows Enterprise Environment](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md) project.
 
 * **Incident Response Analysis**
   * [**PCAP Analysis Demonstration with Case Notes (MZARUH)**](https://github.com/CKeppen/Portfolio/blob/main/Pcap-Analysis-Demonstration-with-Case-Notes-(MZARUH).md): Investigation of a pcap file using tcpdump, WireShark and CyberChef. Leading to Cobalt Strike IOCs.
