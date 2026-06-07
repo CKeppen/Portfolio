@@ -1,4 +1,6 @@
-Author: Cody Keppen | [LinkedIn](https://www.linkedin.com/in/cody-keppen-a09068355/)
+# CIS Controls v8 Assessment
+
+Author: Cody Keppen | [LinkedIn](https://www.linkedin.com/in/cody-keppen-a09068355/) <br>
 Date: 06/07/2026
 
 # Preview and Summary of Exercise
@@ -10,6 +12,8 @@ When I did the original project, I caught some errors in the verification proces
 It's not entirely detrimental, and frameworks are designed to be guidance. Not be all, end all. Though it is something for me to carry with me that if no MFA is used, the recommended password length is at least 14 characters long. 
 
 The simulated Control Assessment documentation is below.
+<br>
+<br>
 
 ---
 # CIS Controls v8 \- Control Assessment
