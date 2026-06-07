@@ -8,7 +8,7 @@ Welcome to my portfolio. This repository contains write-ups, lab work, and proje
 
 I specialize in high-velocity anomaly detection and delivering data-driven results from my Quality Inspection and Production background.
 
-With a decade of experience in the high-stakes mortgage industry—rising from Data Entry to Director of Quality and Operations—I’ve mastered the art of auditing thousands of data points to identify, triage, and remediate systemic production errors. I am now pivoting this "detective" mindset into Cybersecurity.
+With a decade of experience in the fast paced mortgage industry, going from a Data Entry to Director of Quality and Operations, I have experience for auditing thousands of data points to identify, alert, and remediate systemic production errors. I am now pivoting this "detective" mindset into Cybersecurity.
 
 My long-term interest is Identity & Access Management (IAM) and SOC Analysis, while using home lab to continue expanding my foundational IT knowledge.
 
@@ -28,7 +28,7 @@ Here you will find detailed reports from my labs and personal projects.
   * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
  
 * **GRC**
-  *[**CIS Controls v8 Assessment**](https://github.com/CKeppen/Portfolio/blob/main/CIS_Controls_v8_Assessment.md ): Security Control assessment using CIS Controls v8 to assess the security of the [Windows Enterprise Environment](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md) project.
+  * [**CIS Controls v8 Assessment**](https://github.com/CKeppen/Portfolio/blob/main/CIS_Controls_v8_Assessment.md ): Security Control assessment using CIS Controls v8 to assess the security of the [Windows Enterprise Environment](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md) project.
 
 * **Incident Response Analysis**
   * [**PCAP Analysis Demonstration with Case Notes (MZARUH)**](https://github.com/CKeppen/Portfolio/blob/main/Pcap-Analysis-Demonstration-with-Case-Notes-(MZARUH).md): Investigation of a pcap file using tcpdump, WireShark and CyberChef. Leading to Cobalt Strike IOCs.
