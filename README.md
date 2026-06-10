@@ -53,4 +53,4 @@ Here you will find detailed reports from my labs and personal projects.
 
 ## **Contact**
 
-* **LinkedIn:** [linkedin.com/in/cody-keppen-a09068355](https://www.google.com/search?q=https://linkedin.com/in/cody-keppen-a09068355)
+* **LinkedIn:** [linkedin.com/in/cody-keppen](https://www.google.com/search?q=https://linkedin.com/in/cody-keppen)
