@@ -2,7 +2,7 @@
 
 Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
 
-Last Updated: 04/21/2026
+Last Updated: 07/09/2026
 
 # Table of Contents
 - [Preview of Exercise](#preview-of-exercise)
@@ -17,9 +17,9 @@ Last Updated: 04/21/2026
 
 # Preview of Exercise
 
-This is the creation of a Microsoft enterprise work environment using VirtualBox (VB) to manage multiple Virtual Machines (VM).
+This is the creation of a Microsoft enterprise work environment using VirtualBox (VBox) to manage multiple Virtual Machines (VM).
 
-VB will host a Windows 2022 Server VM ("Server") acting as the Domain Controller (DC)  with Active Directory Domain Services (AD DS) and DNS. 
+VBox will host a Windows 2022 Server VM ("Server") acting as the Domain Controller (DC)  with Active Directory Domain Services (AD DS) and DNS. 
 
 Along with a Windows Enterprise Client ("Client") VM running Windows 10 acting as an employee workstation. 
 
