@@ -47,7 +47,7 @@ Here you will find detailed reports from my labs and personal projects.
 
 ## **Technical Skills and Certs**
 
-* **Certifications:** CompTIA Security+, Google Cybersecurity Professional, AZ-900 Azure Fundamentals
+* **Certifications:**  SC-300, CompTIA Security+, Google Cybersecurity Professional, AZ-900 Azure Fundamentals
 * **Core Skills:** Data Analytics, Incident Response, Documentation, Linux, Python, SQL
 * **Platforms:** TryHackMe ([cody.keppen](https://tryhackme.com/p/cody.keppen))
 
