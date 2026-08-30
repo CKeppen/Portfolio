@@ -4,11 +4,13 @@ Last Updated: 8/26/2026
 
 ---
 
-Welcome to my portfolio. This repository contains write-ups, lab work, and projects demonstrating my skills in IT\Cybersecurity.
+After a decade in the mortgage industry, I transitioned to cybersecurity. Since August 2025, I’ve earned my Google Cybersecurity Certificate, CompTIA Security+, AZ-900, and SC-300, driven by a strong focus on Identity and Access Management (IAM) and Artificial Intelligence. I also maintain extensive home labs to self-host and continuously expand my technical knowledge.
 
-I specialize in high-velocity anomaly detection and delivering data-driven results from my Quality Inspection and Production background.
+My exposure to AI began during OpenAI’s 2020 beta. Later, seeing agentic enterprise demos at a quality conference highlighted a new age of technology. This inspired my career pivot: upskilling in cybersecurity to secure the systems driving the new AI era.
 
-With a decade of experience in the fast paced mortgage industry, going from a Data Entry to Director of Quality and Operations, I have experience for auditing thousands of data points to identify, alert, and remediate systemic production errors. I am now pivoting this "detective" mindset into Cybersecurity.
+Previously, at Nationwide Title Clearing, I advanced from a data entry role to managing a 40+ person department. Early on, I built macros that kept my personal quality rate above 95% and production over 110% of KPIs. This drive for efficiency led to my role as Director of Quality Inspection, where I leveraged SQL reporting to support production lines and sustain a company-wide quality rate above 95%. I also managed a unit that developed report-centric alerts to catch defects before they reached the client.
+
+Ultimately, as Director of Document Production, I oversaw in-house teams and external vendors. My core responsibilities included data-driven forecasting to meet SLAs, client onboarding, disaster recovery planning, and collaborating with developers to improve production software.
 
 My long-term interest is Identity & Access Management (IAM) and SOC Analysis, while using home lab to continue expanding my foundational IT knowledge.
 
