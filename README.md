@@ -1,6 +1,6 @@
 # **Cody Keppen's Cybersecurity Portfolio** 
 
-Last Updated: 8/26/2026
+Last Updated: 09/02/2026
 
 ---
 
@@ -22,6 +22,9 @@ Here you will find detailed reports from my labs and personal projects.
     * [**Current Windows Virtual Machine Environment Setup**](https://github.com/CKeppen/Portfolio/blob/main/MS%20Home%20Lab%20VM%20Setup.md): This is my more advanced home lab setup with a full Windows Environment. It includes a Windows Server (DNS, AD DS), Windows Client and Kali VM.
     * [**Windows Enterprise Environment with AD DS**](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md): A Windows Enterprise Environment with a Windows Server running AD DS and a Windows 10 Client, simulating a corporate work environment with users across multiple departments. Built to practice IT admin concepts and offensive/defensive cybersecurity techniques.
     * [**First Home Lab Creation - Kali/Metasploitable2**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
+
+* **Azure**
+   * [**Azure Enumeration with MFASweeper and GraphRunner.**](https://github.com/CKeppen/Portfolio/blob/main/Azure%20Enumeration%20with%20MFASweeper%20and%20GraphRunner.md): Using MFASweeper and GraphRunner to Enumerate and Exfiltrate data from an Azure tenant using harvested credentials.
 
 * **SIEM**
    * [**Elastic SIEM**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simple use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
