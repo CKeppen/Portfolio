@@ -27,7 +27,7 @@ Here you will find detailed reports from my labs and personal projects.
    * [**Azure Enumeration with MFASweeper and GraphRunner.**](https://github.com/CKeppen/Portfolio/blob/main/Azure%20Enumeration%20with%20MFASweeper%20and%20GraphRunner.md): Using MFASweeper and GraphRunner to Enumerate and Exfiltrate data from an Azure tenant using harvested credentials.
 
 * **SIEM**
-   * [**Elastic SIEM**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simple use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
+   * [**Elastic SIEM (KQL)**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simple use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
 
 * **Phishing Analysis**
   * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
