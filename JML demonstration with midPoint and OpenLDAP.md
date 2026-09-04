@@ -46,10 +46,10 @@ This lab comprises of three components. A custom HR app called SimplifyHR, an in
 
 Here is the SimplifyHR app that currently has six employees listed. It also has an "+ Add Employee" button at the top right. You will see five columns for the Employee Directory. Employee ID, Name, Department, Status and Actions.
 
-![](images/Pasted%20image%2020260903185326.png)
+![](images/Pasted%20image%2020260903185326.png) <br>
 
-Here is the SimplifyIAM user list. Which includes the same six employees and the admin account. There is a lot of functionality for this service.
-<br>
+Here is the SimplifyIAM user list. Which includes the same six employees and the admin account. There is a lot of functionality for this service. <br>
+
 ![](images/Pasted%20image%2020260903185436.png)
 
 Now, here is the Directory for SimplifyIAM with the same six employees.
