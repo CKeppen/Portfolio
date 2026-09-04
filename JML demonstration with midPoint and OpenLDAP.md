@@ -149,7 +149,7 @@ I'll do a little cleanup here and get rid of the manually entered account for no
 
 Now for the second part of the JML workflow, Moving an employee around.
 
-I had to do same modifications to allow for this to work, as the SimplifyHR app doesn't include department moves. I go over that here in the [Lessons Learned] !add section.
+I had to do same modifications to allow for this to work, as the SimplifyHR app doesn't include department moves. I go over that here in the [Lessons Learned](#Missing_Mover_Function) section.
 
 Here'll we'll have the Engineer Sophie Muller move to the Sales department. Currently she is listed as an Engineer on both the HR  and SimplifyIAM portal. The Directory doesn't setup OU's by department, so that isn't relevant on this portion.
 
