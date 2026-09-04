@@ -1,3 +1,5 @@
+# JML demonstration with midPoint and OpenLDAP
+
 Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
 
 Date: 09/03/2026
@@ -44,15 +46,15 @@ This lab comprises of three components. A custom HR app called SimplifyHR, an in
 
 Here is the SimplifyHR app that currently has six employees listed. It also has an "+ Add Employee" button at the top right. You will see five columns for the Employee Directory. Employee ID, Name, Department, Status and Actions.
 
-![](Attachments/Pasted%20image%2020260903185326.png)
+![](images/Pasted%20image%2020260903185326.png)
 
 Here is the SimplifyIAM user list. Which includes the same six employees and the admin account. There is a lot of functionality for this service.
 
-![](Attachments/Pasted%20image%2020260903185436.png)
+![](images/Pasted%20image%2020260903185436.png)
 
 Now, here is the Directory for SimplifyIAM with the same six employees.
 
-![](Attachments/Pasted%20image%2020260903185648.png)
+![](images/Pasted%20image%2020260903185648.png)
 
 Now that all three services have been shown for a visual, I'll start the process of onboarding a new employee.
 
@@ -70,39 +72,39 @@ When entered into the "Add New Employee" popup, you can see a "CSV Preview" at t
 
 You'll notice it automatically adds the Employee ID to an available ID as well as the other information we entered. What was not asked of us is the initial Status of the employee. Which is defaulted to "Active".
 
-![](Attachments/Pasted%20image%2020260903190421.png)
+![](images/Pasted%20image%2020260903190421.png)
 
 Now that the new employee has been added, you can see him as "Active" at the bottom of the "Employee Directory".
 
-![](Attachments/Pasted%20image%2020260903190652.png)
+![](images/Pasted%20image%2020260903190652.png)
 
 Let's check the other services to see if he is there. 
 
 First to check is SimplifyIAM and he is not there.
 
-![](Attachments/Pasted%20image%2020260903190758.png)
+![](images/Pasted%20image%2020260903190758.png)
 
 Nor in the OpenLDAP Directory.
 
-![](Attachments/Pasted%20image%2020260903190830.png)
+![](images/Pasted%20image%2020260903190830.png)
 
 Now, we could enter the new employee into the Directory manually, but that is a bit tedious. You are creating a double entry situation in which you are typing something someone else has already entered into a system.
 
-![](Attachments/Pasted%20image%2020260903191048.png)
+![](images/Pasted%20image%2020260903191048.png)
 
 Plus you are increasing the chances of typos and syncing issues. Introducing scenarios where entries may no longer be uniform anymore. 
 
 Here I manually entered Bob Boberton into the Directory, but he doesn't exactly match the other employees. The below can easily be done with new IT personnel who have to follow procedures. And that is if procedures are updated.
 
-![](Attachments/Pasted%20image%2020260903191714.png)
+![](images/Pasted%20image%2020260903191714.png)
 
 Instead we'll use SimplifyIAM's Server Task function to create some automation. From the "All Tasks" module, select "New Task" at the bottom, represented as a "+".
 
-![](Attachments/Pasted%20image%2020260903191233.png)
+![](images/Pasted%20image%2020260903191233.png)
 
 Then I'll select the "Reconciliation Task" to create a new one with the help of a wizard.
 
-![](Attachments/Pasted%20image%2020260903191951.png)
+![](images/Pasted%20image%2020260903191951.png)
 
 This will be a simple task creation, starting with selecting the "Resource", which in this case is going to be the SimplifyHR app.
 
@@ -110,38 +112,38 @@ Then going through to choose the "Kind" to "Account", the intent kept to the "de
 
 This is to define the resources as an Account when it provisions the data. Everything else stays the same for this demonstration.
 
-![](Attachments/Pasted%20image%2020260903192233.png)
+![](images/Pasted%20image%2020260903192233.png)
 
 Once I click save, I'm back to the All Tasks list, with the newly create Reconciliation Task. It is currently Suspended, but I can click "Resume" from here to start the task. In the previous window, we also had the option to "Save & Run" to have the task run right after it is saved.
 
-![](Attachments/Pasted%20image%2020260903192643.png)
+![](images/Pasted%20image%2020260903192643.png)
 
 The icon and Execution column will change providing tooltip updates, or you can click the refresh button at the bottom. After hitting refresh, I can see that the task ran successfully.
 
-![](Attachments/Pasted%20image%2020260903192810.png)
+![](images/Pasted%20image%2020260903192810.png)
 
 Now to check what happened. On SimplifyIAM, I can see "Employee.Bob" now listed in the users, following the typically format the company uses.
 
-![](Attachments/Pasted%20image%2020260903193158.png)
+![](images/Pasted%20image%2020260903193158.png)
 
 Going into the account, I can see everything from the SimplifyHR app was pushed over into the SimplifyIAM table. Including the Organizational Unit.
 
-![](Attachments/Pasted%20image%2020260903193252.png)
+![](images/Pasted%20image%2020260903193252.png)
 
 When looking at the OpenLDAP Directory, we can see both entrees for Bob now.
 
-![](Attachments/Pasted%20image%2020260903193120.png)
+![](images/Pasted%20image%2020260903193120.png)
 
 Let's take a comparison look between the two.
 
 You can see some difference. But specifically the User Name difference, which ties to the UID object for the user. Notice how there was no conflict before the manually entered account was `Bob.Boberton` and the automated one followed the company format of `Employee.Boberton`.
 
-![](Attachments/Pasted%20image%2020260903193409.png)
-![](Attachments/Pasted%20image%2020260903193445.png)
+![](images/Pasted%20image%2020260903193409.png)
+![](images/Pasted%20image%2020260903193445.png)
 
 I'll do a little cleanup here and get rid of the manually entered account for now. And to note, let's say the incorrect Bob account was removed. Running the same SimplifyIAM task would bring the account back, as it needs to reconcile with the HR "source of truth" table.
 
-![](Attachments/Pasted%20image%2020260903193628.png)
+![](images/Pasted%20image%2020260903193628.png)
 
 ## Mover - Employee promotion or demotion
 
@@ -152,18 +154,18 @@ I had to do same modifications to allow for this to work, as the SimplifyHR app 
 Here'll we'll have the Engineer Sophie Muller move to the Sales department. Currently she is listed as an Engineer on both the HR  and SimplifyIAM portal. The Directory doesn't setup OU's by department, so that isn't relevant on this portion.
 
 SimplifyHR:
-![](Attachments/Pasted%20image%2020260903194141.png)
+![](images/Pasted%20image%2020260903194141.png)
 
 SimplifyIAM:
-![](Attachments/Pasted%20image%2020260903194343.png)
+![](images/Pasted%20image%2020260903194343.png)
 
 After modifying the HR file, I now have Sophie Muller in the Sales department on the HR app.
 
-![](Attachments/Pasted%20image%2020260903195105.png)
+![](images/Pasted%20image%2020260903195105.png)
 
 I then go back to the SimplifyIAM Task portal to run and double check that the department has updated. Success!
 
-![](Attachments/Pasted%20image%2020260903195236.png)
+![](images/Pasted%20image%2020260903195236.png)
 
 Obviously when it comes to Mover function there will follow other tasks like permission changes and verifications, etc. I do not have that setup and this is a simple demonstration for now.
 
@@ -173,35 +175,35 @@ The last step is Leaver. There are going to be times when an employee is no long
 
 Here we will have a termination request for Laura Martinez.
 
-![](Attachments/Pasted%20image%2020260903195725.png)
+![](images/Pasted%20image%2020260903195725.png)
 
 In the HR system, she now shows as "Terminated". But SimplifyIAM and the Directory still have her as active. We'll start the same automation task from SimplifyIAM to update the two services.
 
-![](Attachments/Pasted%20image%2020260903195910.png)
+![](images/Pasted%20image%2020260903195910.png)
 
 After the task has ran, I go to the "All Users" table and can see a new icon next to Laura's name.
 
-![](Attachments/Pasted%20image%2020260903200002.png)
+![](images/Pasted%20image%2020260903200002.png)
 
 When I click on her account, I can see that she is shown as "Disabled".
 
-![](Attachments/Pasted%20image%2020260903200059.png)
+![](images/Pasted%20image%2020260903200059.png)
 
 On the OpenLDAP Directory, I hit refresh and I see her now in the "inactive" OU.
 
-![](Attachments/Pasted%20image%2020260903200155.png)
+![](images/Pasted%20image%2020260903200155.png)
 
 You'll also notice back on the HR portal that a "Reactivate" button is available. Which will move the user back from the "inactive" OU to the "people" OU once the SimplifyIAM task is ran.
 
-![](Attachments/Pasted%20image%2020260903202138.png)
+![](images/Pasted%20image%2020260903202138.png)
 
 Once I select this, Laura is now showing back as "Active" in both SimplifyIAM and the Directory. If you go to Laura's account, you can see the history of her being "Disabled" then "Enabled" again.
 
-![](Attachments/Pasted%20image%2020260903202917.png)
+![](images/Pasted%20image%2020260903202917.png)
 
 Selecting the oldest entry, you can see Laura as "Disabled".
 
-![](Attachments/Pasted%20image%2020260903203003.png)
+![](images/Pasted%20image%2020260903203003.png)
 
 # Verification Steps
 
@@ -216,36 +218,36 @@ Department: Legal
 ```
 
 SimplifyHR confirmed.
-![](Attachments/Pasted%20image%2020260903203145.png)
+![](images/Pasted%20image%2020260903203145.png)
 
 SimplifyIAM confirmed:
-![](Attachments/Pasted%20image%2020260903203219.png)
+![](images/Pasted%20image%2020260903203219.png)
 
 Directory confirmed:
-![](Attachments/Pasted%20image%2020260903203420.png)
+![](images/Pasted%20image%2020260903203420.png)
 
 ## Mover Task
 
 An employee has been promoted from the Engineering department to the Sales department. Employee Sophie Muller needs to be update to the Sales department.
 
 SimplifyHR confirmed:
-![](Attachments/Pasted%20image%2020260903203631.png)
+![](images/Pasted%20image%2020260903203631.png)
 
 SimplifyIAM confirmed:
-![](Attachments/Pasted%20image%2020260903203653.png)
+![](images/Pasted%20image%2020260903203653.png)
 
 ## Leaver Task
 
 An employee's last day is today and needs to go through the Termination process flow. The employee Laura Martinez needs to be deprovisioned.
 
 SimplifyHR confirmed:
-![](Attachments/Pasted%20image%2020260903204400.png)
+![](images/Pasted%20image%2020260903204400.png)
 
 SimplifyIAM confirmed:
-![](Attachments/Pasted%20image%2020260903204658.png)
+![](images/Pasted%20image%2020260903204658.png)
 
 Directory confirmed:
-![](Attachments/Pasted%20image%2020260903204728.png)
+![](images/Pasted%20image%2020260903204728.png)
 
 ---
 # Lessons Learned
@@ -254,23 +256,23 @@ Directory confirmed:
 
 I wanted to do a JML demo, but I realized the HR app for the lab doesn't have a function to update the employee department. Which almost led me away from using the lab, but there really is a lot of good functionality and resources added here. I noticed the top of the HR portal shows the path to the `hr.csv`, so I decided to poke around.
 
-![](Attachments/Pasted%20image%2020260903194620.png)
+![](images/Pasted%20image%2020260903194620.png)
 
 Once I got to the file, I then opened it to modify the file and see if it would actually update on the portal.
 
-![](Attachments/Pasted%20image%2020260903194835.png)
+![](images/Pasted%20image%2020260903194835.png)
 
 I remembered the Department field was a drop down when adding the new employees, so I went back to double check spelling, capitalization, etc.
 
-![](Attachments/Pasted%20image%2020260903194944.png)
+![](images/Pasted%20image%2020260903194944.png)
 
 Then changed Sophie to Sales from Engineering.
 
-![](Attachments/Pasted%20image%2020260903195002.png)
+![](images/Pasted%20image%2020260903195002.png)
 
 When I returned, she was showing in the Sales department! Success!
 
-![](Attachments/Pasted%20image%2020260903195059.png)
+![](images/Pasted%20image%2020260903195059.png)
 # Summary
 
 This is a nice little playground to learn different functions between midPoint and LDAP.
