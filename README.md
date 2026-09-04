@@ -26,6 +26,9 @@ Here you will find detailed reports from my labs and personal projects.
 * **Azure**
    * [**Azure Enumeration with MFASweeper and GraphRunner.**](https://github.com/CKeppen/Portfolio/blob/main/Azure%20Enumeration%20with%20MFASweeper%20and%20GraphRunner.md): Using MFASweeper and GraphRunner to Enumerate and Exfiltrate data from an Azure tenant using harvested credentials.
 
+* **IAM**
+  * [JML demonstration with midPoint and OpenLDAP](https://github.com/CKeppen/Portfolio/blob/main/JML%20demonstration%20with%20midPoint%20and%20OpenLDAP.md): Using midPoint and OpenLDAP from a SimplifyIAM lab to demonstrate basic Joiner, Mover, Leaver (JML) tasks for Identity and Access Management (IAM)
+
 * **SIEM**
    * [**Elastic SIEM (KQL)**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simple use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
 
