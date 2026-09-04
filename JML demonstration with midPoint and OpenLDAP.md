@@ -33,8 +33,8 @@ The Identity and Access Management member will use SimplifyIAM to handle the pro
 
 #  Concepts Demonstrated
 
-1. [Joiner](#joiner-adding-a-new-employee)
-2. [Mover](
+1. Joiner
+2. Mover
 3. Leaver 
 
 ---
@@ -49,7 +49,7 @@ Here is the SimplifyHR app that currently has six employees listed. It also has 
 ![](images/Pasted%20image%2020260903185326.png)
 
 Here is the SimplifyIAM user list. Which includes the same six employees and the admin account. There is a lot of functionality for this service.
-
+<br>
 ![](images/Pasted%20image%2020260903185436.png)
 
 Now, here is the Directory for SimplifyIAM with the same six employees.
