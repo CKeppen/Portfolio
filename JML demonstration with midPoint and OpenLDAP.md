@@ -60,27 +60,25 @@ Here is the SimplifyHR app that currently has six employees listed. It also has 
 
 ## Joiner - Adding a new employee
 
-For us to add a new employee, we'll start with the button at the top right, "+ Add Employee".
+In this instance, we are pretending to be an HR representative using the SimplifyHR portal entering a new employee to the database. The task for the new employee will have the following fields to enter.
 
-In this instance, we are pretending to be an HR representative entering a new employee to the database. The task for the new employee will have the following fields to enter.
+For us to add a new employee, we'll start with the button at the top right, "+ Add Employee".
 
 First Name: Bob <br>
 Last Name: Boberton <br>
 Department: Legal <br>
 
-When entered into the "Add New Employee" popup, you can see a "CSV Preview" at the bottom that will go into the HR file.
+When the information is entered into the "Add New Employee" popup, you can see a "CSV Preview" at the bottom that will go into the HR file.
 
 You'll notice it automatically adds the Employee ID to an available ID as well as the other information we entered. What was not asked of us is the initial Status of the employee. Which is defaulted to "Active".
 
 ![](images/Pasted%20image%2020260903190421.png)
 
-<br> Now that the new employee has been added, you can see him as "Active" at the bottom of the "Employee Directory".
+<br> Now that the new employee has been added, you can see him as "Active" at the bottom of the "Employee Directory". Including their department.
 
 ![](images/Pasted%20image%2020260903190652.png)
 
-<br> Let's check the other services to see if he is there. 
-
-First to check is SimplifyIAM and he is not there.
+<br> Let's check the other services to see if he is there. First to check is SimplifyIAM, which he is not there.
 
 ![](images/Pasted%20image%2020260903190758.png)
 
@@ -88,13 +86,11 @@ First to check is SimplifyIAM and he is not there.
 
 ![](images/Pasted%20image%2020260903190830.png)
 
-<br> Now, we could enter the new employee into the Directory manually, but that is a bit tedious. You are creating a double entry situation in which you are typing something someone else has already entered into a system.
+<br> Now, we could enter the new employee into the Directory manually, but that is a bit tedious. You are creating a double entry situation in which you are typing something someone else has already entered into a system. Plus you are increasing the chances of typos and syncing issues. Introducing scenarios where entries may no longer be uniform anymore. Here is an example:
 
 ![](images/Pasted%20image%2020260903191048.png)
 
-<br> Plus you are increasing the chances of typos and syncing issues. Introducing scenarios where entries may no longer be uniform anymore. 
-
-Here I manually entered Bob Boberton into the Directory, but he doesn't exactly match the other employees. The below can easily be done with new IT personnel who have to follow procedures. And that is if procedures are updated.
+<br> Here I manually entered Bob Boberton into the Directory, but he doesn't exactly match the other employees. The below can easily be done with new IT personnel who have to follow unfamiliar procedures. And hoping the procedure is up-to-date.
 
 ![](images/Pasted%20image%2020260903191714.png)
 
@@ -106,19 +102,19 @@ Here I manually entered Bob Boberton into the Directory, but he doesn't exactly 
 
 ![](images/Pasted%20image%2020260903191951.png)
 
-<br> This will be a simple task creation, starting with selecting the "Resource", which in this case is going to be the SimplifyHR app.
+<br> This will be a simple task creation, starting with selecting "Resource", which in this case is going to be the SimplifyHR app.
 
-Then going through to choose the "Kind" to "Account", the intent kept to the "default" then "Object Class" set to the "AccountObjectClass".
+Then going through to choose the "Kind" to "Account", "Intent" kept to the "default", then "Object Class" set to the "AccountObjectClass".
 
 This is to define the resources as an Account when it provisions the data. Everything else stays the same for this demonstration.
 
 ![](images/Pasted%20image%2020260903192233.png)
 
-<br> Once I click save, I'm back to the All Tasks list, with the newly create Reconciliation Task. It is currently Suspended, but I can click "Resume" from here to start the task. In the previous window, we also had the option to "Save & Run" to have the task run right after it is saved.
+<br> Once I click save, I'm back to the "All Tasks" list, with the newly create Reconciliation Task. It is currently Suspended, but I can click "Resume" from here to start the task. In the previous window, we also had the option to "Save & Run" to have the task run right after it is saved.
 
 ![](images/Pasted%20image%2020260903192643.png)
 
-<br> The icon and Execution column will change providing tooltip updates, or you can click the refresh button at the bottom. After hitting refresh, I can see that the task ran successfully.
+<br> The icon and Execution column will change, providing tooltip updates. Or you can click the refresh button at the bottom. After hitting refresh, I can see that the task ran successfully.
 
 ![](images/Pasted%20image%2020260903192810.png)
 
@@ -136,7 +132,7 @@ This is to define the resources as an Account when it provisions the data. Every
 
 <br> Let's take a comparison look between the two.
 
-You can see some difference. But specifically the User Name difference, which ties to the UID object for the user. Notice how there was no conflict before the manually entered account was `Bob.Boberton` and the automated one followed the company format of `Employee.Boberton`.
+You can see some difference. But specifically the "User Name" difference, which ties to the UID object for the user. Notice how there was no conflict? The manually entered account was `Bob.Boberton` and the automated one followed the company format of `Employee.Boberton`.
 
 ![](images/Pasted%20image%2020260903193409.png)
 ![](images/Pasted%20image%2020260903193445.png)
@@ -149,9 +145,9 @@ You can see some difference. But specifically the User Name difference, which ti
 
 Now for the second part of the JML workflow, Moving an employee around.
 
-I had to do same modifications to allow for this to work, as the SimplifyHR app doesn't include department moves. I go over that here in the [Lessons Learned](#missing-mover-function) section.
+I had to do some modifications to allow this to work, as the SimplifyHR app doesn't include department moves. I go over that here in the [Lessons Learned](#missing-mover-function) section.
 
-Here'll we'll have the Engineer Sophie Muller move to the Sales department. Currently she is listed as an Engineer on both the HR  and SimplifyIAM portal. The Directory doesn't setup OU's by department, so that isn't relevant on this portion.
+Here'll we'll have the Engineer, Sophie Muller move to the Sales department. Currently she is listed as an Engineer on both the HR  and SimplifyIAM portal. The Directory doesn't setup OU's by department, so that isn't relevant in this portion.
 
 SimplifyHR:
 ![](images/Pasted%20image%2020260903194141.png)
@@ -159,21 +155,21 @@ SimplifyHR:
 SimplifyIAM:
 ![](images/Pasted%20image%2020260903194343.png)
 
-<br> After modifying the HR file, I now have Sophie Muller in the Sales department on the HR app.
+<br> After modifying the HR file, I now have Sophie Muller in the Sales department on the HR app, but remember, we need the SimplifyIAM to act for that to update in the IGA.
 
 ![](images/Pasted%20image%2020260903195105.png)
 
-<br> I then go back to the SimplifyIAM Task portal to run and double check that the department has updated. Success!
+<br> I  go back to the SimplifyIAM Task portal to run the same Reconciliation Task and double check that the department has updated. Success!
 
 ![](images/Pasted%20image%2020260903195236.png)
 
-<br> Obviously when it comes to Mover function there will follow other tasks like permission changes and verifications, etc. I do not have that setup and this is a simple demonstration for now.
+<br> Obviously when it comes to Mover function there will be other tasks like permission changes and verifications, etc. I do not have that setup and this is a simple demonstration for now.
 
 ## Leaver
 
-The last step is Leaver. There are going to be times when an employee is no longer with an organization. HR will place the ticket it, then the Employee account is deactivated by IT for security purposes. The account is not immediately remove, as there is usually a grace period to have access to the users data for business operations or HR for continuity reasons. Like excels sheets the employee owned or to conclude an investigation.
+The last step is Leaver. There are going to be times when an employee is no longer with an organization. HR will place the ticket in, then the Employee account is deactivated by IT for security purposes. The account is not immediately removed, as there is usually a grace period to have access to the users data for business operations or HR for continuity reasons. Like excels sheets the employee owned or to conclude an investigation.
 
-Here we will have a termination request for Laura Martinez.
+Here we will have a termination request for Laura Martinez. HR will select the "Terminate" button to start the process.
 
 ![](images/Pasted%20image%2020260903195725.png)
 
@@ -209,7 +205,7 @@ Here we will have a termination request for Laura Martinez.
 
 ## Joiner Task
 
-An new employee was hired and needed to be onboard. Here is the employees information:
+An new employee was hired and needed to be onboard. Here is the employee's information:
 
 ```
 First Name: Bob
@@ -258,7 +254,7 @@ I wanted to do a JML demo, but I realized the HR app for the lab doesn't have a 
 
 ![](images/Pasted%20image%2020260903194620.png)
 
-Once I got to the file, I then opened it to modify the file and see if it would actually update on the portal.
+Once I got to the file, I opened it to modify the file and see if it would actually update on the portal.
 
 ![](images/Pasted%20image%2020260903194835.png)
 
@@ -273,6 +269,9 @@ Then changed Sophie to Sales from Engineering.
 When I returned, she was showing in the Sales department! Success!
 
 ![](images/Pasted%20image%2020260903195059.png)
+
+This allowed me to do a fully JML demonstration. This is the first time I've used any of these services with a lab I imported into my VirtualBox. So it was nice to be able to figure this out.
+
 # Summary
 
 This is a nice little playground to learn different functions between midPoint and LDAP.
@@ -284,6 +283,8 @@ The directory and the HR app are missing some functionality to do some Mover fun
 In the end, it was a good way to demonstrate a JML process flow. Having automation available is a plus, as I'm always going to be a fan of automation. 
 
 Plus having uniform actions take play over the different services is always a plus.
+
+I want to learn more about these services, but I'm also putting time into tinkering around with Windows and Entra. With my next project looking at taking my On-Prem Windows Environment hybrid with Entra.
 
 ---
 
