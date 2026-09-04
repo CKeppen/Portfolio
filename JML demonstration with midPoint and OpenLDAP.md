@@ -21,7 +21,7 @@ This is a simple demonstration of foundational Joiner Mover Leaver (JML) functio
 
 The lab uses [midPoint](https://evolveum.com/midpoint/) as the Identity Governance and Administration (IGA) platform to handle HR tasks from a custom HR app to simulate what you would see from something like Workday.
 
-MidPoint then will automate tasks into [OpenLDAP](https://www.openldap.org/) acting as the Directory for a company. Storing the user objects. 
+MidPoint then will automate tasks into [OpenLDAP](https://www.openldap.org/), acting as the Directory for the company. Storing the user objects. 
 
 The SimplifyHR app needs to be thought of as the "source of truth". HR will perform their tasks and update their portal to show the most current standing of the employees at the company.
 
@@ -33,8 +33,8 @@ The Identity and Access Management member will use SimplifyIAM to handle the pro
 
 #  Concepts Demonstrated
 
-1. Joiner (manual and automatic)
-2. Mover
+1. [Joiner](#joiner-adding-a-new-employee)
+2. [Mover](
 3. Leaver 
 
 ---
@@ -64,9 +64,9 @@ For us to add a new employee, we'll start with the button at the top right, "+ A
 
 In this instance, we are pretending to be an HR representative entering a new employee to the database. The task for the new employee will have the following fields to enter.
 
-First Name: Bob
-Last Name: Boberton
-Department: Legal
+First Name: Bob <br>
+Last Name: Boberton <br>
+Department: Legal <br>
 
 When entered into the "Add New Employee" popup, you can see a "CSV Preview" at the bottom that will go into the HR file.
 
