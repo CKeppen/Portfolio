@@ -1,6 +1,6 @@
 # JML demonstration with midPoint and OpenLDAP
 
-Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
+Author: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen/)
 
 Date: 09/03/2026
 
