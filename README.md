@@ -23,11 +23,14 @@ Here you will find detailed reports from my labs and personal projects.
     * [**Windows Enterprise Environment with AD DS**](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md): A Windows Enterprise Environment with a Windows Server running AD DS and a Windows 10 Client, simulating a corporate work environment with users across multiple departments. Built to practice IT admin concepts and offensive/defensive cybersecurity techniques.
     * [**First Home Lab Creation - Kali/Metasploitable2**](https://github.com/CKeppen/Portfolio/blob/main/First%20Home%20Lab%20Creation(Kali%20and%20Metasploitable).md): My documentation on creating my first home lab with Kali and Metasploitable2.
 
-* **Azure**
-   * [**Azure Enumeration with MFASweeper and GraphRunner.**](https://github.com/CKeppen/Portfolio/blob/main/Azure%20Enumeration%20with%20MFASweeper%20and%20GraphRunner.md): Using MFASweeper and GraphRunner to Enumerate and Exfiltrate data from an Azure tenant using harvested credentials.
+* **Home Server**
+   * [**Proxmox Homelab - DNS Filtering, Segmentation, Media Server and Backups**](https://github.com/CKeppen/Portfolio/blob/main/Proxmox%20Homelab%20-%20DNS%20Filtering%2C%20Segmentation%2C%20Media%20Server%20and%20Backups.md): My Proxmox server with AdGuard for DNS filtering to block ads, Proxmox Backup Server (PBS), Jellyfin media services and pfSense for network segmentation.
 
 * **IAM**
   * [JML demonstration with midPoint and OpenLDAP](https://github.com/CKeppen/Portfolio/blob/main/JML%20demonstration%20with%20midPoint%20and%20OpenLDAP.md): Using midPoint and OpenLDAP from a SimplifyIAM lab to demonstrate basic Joiner, Mover, Leaver (JML) tasks for Identity and Access Management (IAM)
+    
+* **Azure**
+   * [**Azure Enumeration with MFASweeper and GraphRunner.**](https://github.com/CKeppen/Portfolio/blob/main/Azure%20Enumeration%20with%20MFASweeper%20and%20GraphRunner.md): Using MFASweeper and GraphRunner to Enumerate and Exfiltrate data from an Azure tenant using harvested credentials.
 
 * **SIEM**
    * [**Elastic SIEM (KQL)**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simple use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
