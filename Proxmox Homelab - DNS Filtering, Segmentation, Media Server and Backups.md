@@ -214,7 +214,7 @@ The audit also found one issue. A VPN client on my laptop was silently skipping 
 ---
 # Verification Steps
 
-## pfSense Routing
+### pfSense Routing
 
 pfSense routed to the internet before PBS was moved behind it. Ping to `9.9.9.9` and `google.com` were successful.
 
@@ -228,7 +228,7 @@ pfSense routed to the internet before PBS was moved behind it. Ping to `9.9.9.9`
 
 <br>
 
-## Host to PBS
+### Host to PBS
 
 The Proxmox host reached PBS through the firewall rule, and a full backup job completed.
 
@@ -238,15 +238,15 @@ The Proxmox host reached PBS through the firewall rule, and a full backup job co
 
 <br>
 
-## Household Devices to PBS
+### Household Devices to PBS
 
 Only the Proxmox host has a route and an allow rule to the backup segment. The perimeter audit confirmed my laptop on the home LAN has no route to it.
 
-## pfSense Web GUI
+### pfSense Web GUI
 
 The pfSense web GUI is not reachable from the home LAN. This is intended. Management is done from inside the segment or through the Proxmox console.
 
-## DNS Filtering
+### DNS Filtering
 
 Ads and known malicious domains are blocked on household devices, and queries show in the AdGuard query log.
 
@@ -256,7 +256,7 @@ Ads and known malicious domains are blocked on household devices, and queries sh
 
 <br>
 
-## Jellyfin Read-Only Mount
+### Jellyfin Read-Only Mount
 
 Trying to create a file on the media mount from inside the container returned `Read-only file system`.
 
@@ -270,7 +270,7 @@ pct exec 103 -- touch /data/media/writetest
 
 <br>
 
-## Jellyfin Playback
+### Jellyfin Playback
 
 The test movie confirmed Direct Play was working. The phone app played with true Direct Play, with no transcode process running on the server. The browser used Direct Stream, where the video passed through untouched and only the audio was converted.
 
@@ -280,7 +280,7 @@ The test movie confirmed Direct Play was working. The phone app played with true
 
 <br>
 
-## Internet Exposure
+### Internet Exposure
 
 No services reachable from the internet. All scanned ports filtered.
 
@@ -293,7 +293,7 @@ No services reachable from the internet. All scanned ports filtered.
 ---
 # Lessons Learned
 
-## DNS Filtering Lessons
+### DNS Filtering Lessons
 
 When you get a new toy, it can be hard to not just turn everything on. Which in this case, taught me some early DNS filtering lessons.
 
@@ -311,7 +311,7 @@ There might have been a second ticket later, as a virtual meeting had technical 
 
 Best advice. Take it slow. Start small.
 
-## Single NIC and No VLANs
+### Single NIC and No VLANs
 
 I originally planned a four-tier VLAN setup. I dropped it because real VLANs need a managed switch or a router that supports VLANs, and my ISP router doesn't.
 
@@ -319,31 +319,31 @@ Having pfSense firewall one segment was the right size for this hardware. It als
 
 I thought this would be a good way to still get segmentation while learning pfSense, which I've seen a lot in the self-hosting communities.
 
-## Order of Operations
+### Order of Operations
 
 If I had moved PBS before pfSense was routing and the firewall rule was written, the Proxmox host would have lost contact with its backup server. The order that worked was build pfSense, verify it, write the rule, move PBS, then test with a backup.
 
 Changing the IP inside the PBS VM first, then moving it to the new bridge, kept the switch to one step. I used the same order again for later changes.
 
-## Remote Access Without a Subnet Router
+### Remote Access Without a Subnet Router
 
 I use Tailscale for remote access with no ports forwarded. It is only installed on the Proxmox host. None of the services have it, and I'm not using a subnet router. If I add remote access to anything else later, the plan is to install Tailscale on that machine directly.
 
 A subnet router advertising the backup segment would create a path around pfSense. Installing it on a machine directly, instead of advertising a whole network, keeps pfSense in control of what reaches the segment.
 
-## pfSense GUI Lockout
+### pfSense GUI Lockout
 
 After I deleted the temporary allow rule I used during setup, I couldn't reach the pfSense web GUI from the home LAN anymore. That is the correct end state. I documented how to get to it from inside the segment or the Proxmox console instead of leaving the rule in place.
 
-## Storage Without a NAS VM
+### Storage Without a NAS VM
 
 I looked at TrueNAS and OpenMediaVault for storage. Both want 8 to 16 GB of RAM on their own, which doesn't work on a 16 GB host. Bind mounts with permissions set per service work fine for a single server.
 
-## Backup Gap
+### Backup Gap
 
 PBS backs up the VMs and containers, but not folders on the host itself. Personal data on the 8 TB drive is on a single disk with no second copy right now. That is the next project.
 
-## UID and GID Mapping
+### UID and GID Mapping
 
 Getting file ownership right between the host and the container was a big lesson for me.
 
@@ -365,7 +365,7 @@ To check from inside the container, `ls -lan` shows the raw ID numbers instead o
 
 <br>
 
-## Testing Before GPU Passthrough
+### Testing Before GPU Passthrough
 
 I planned to pass the i5-6500's integrated GPU into the Jellyfin container for hardware transcoding. Before doing it, I tested playback on the devices we actually use.
 
@@ -381,7 +381,7 @@ Two devices used Direct Play. The browser only converted the audio, and a GPU ca
 
 So I retired that phase and skipped the host permission changes that came with it. I'll revisit it if a device ever needs a real video transcode.
 
-## The ffmpeg False Positive
+### The ffmpeg False Positive
 
 When checking for transcoding, a plain search for "ffmpeg" in the running processes said a transcode was happening when it wasn't. The Jellyfin server process has "ffmpeg" in its own command line.
 
@@ -401,11 +401,11 @@ Searching for the transcoder's full process path gave the correct answer.
 
 <br>
 
-## Read-Only Mount Library Scans
+### Read-Only Mount Library Scans
 
 When I added files to the media folder from the host, Jellyfin didn't pick them up automatically. The read-only mount doesn't pass along the file change notifications, so a manual library scan is needed.
 
-## DNS Filtering Bypassed by a VPN
+### DNS Filtering Bypassed by a VPN
 
 During the perimeter audit, I found my laptop wasn't using AdGuard for about two hours. A commercial VPN client was blocking access to devices on the LAN and sending all DNS through its own servers. There was no error and browsing worked normally.
 
@@ -413,7 +413,7 @@ During the perimeter audit, I found my laptop wasn't using AdGuard for about two
 
 I disconnected the VPN, turned off auto-connect and now only use it on untrusted networks. Details are in the [Home Network Perimeter Audit](Home%20Network%20Perimeter%20Audit.md).
 
-## Power Backup
+### Power Backup
 
 I live in Florida, and power outages can be common with the weather we see. Before this current setup, I had a Solar Battery Bank with backup power capabilities plugged in. At one point the internet went down, but the internet stayed on. It was great.
 
