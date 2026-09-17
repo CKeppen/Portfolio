@@ -32,14 +32,14 @@ Here you will find detailed reports from my labs and personal projects.
 * **Azure**
    * [**Azure Enumeration with MFASweeper and GraphRunner.**](https://github.com/CKeppen/Portfolio/blob/main/Azure%20Enumeration%20with%20MFASweeper%20and%20GraphRunner.md): Using MFASweeper and GraphRunner to Enumerate and Exfiltrate data from an Azure tenant using harvested credentials.
 
+* **GRC**
+  * [**CIS Controls v8 Assessment**](https://github.com/CKeppen/Portfolio/blob/main/CIS_Controls_v8_Assessment.md ): Security Control assessment using CIS Controls v8 to assess the security of the [Windows Enterprise Environment](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md) project.
+
 * **SIEM**
    * [**Elastic SIEM (KQL)**](https://github.com/CKeppen/Portfolio/blob/main/Elastic%20SIEM.md): Simple use of the Elastic SIEM. Demonstrating filtering, KQL and dashboard visualizatoin.
 
 * **Phishing Analysis**
   * [**Phishing Demonstration with Mxtoolbox**](https://github.com/CKeppen/Portfolio/blob/main/Phishing%20Demonstration%20with%20Mxtoolbox.md): Demonstration of analyzing a phishing email using Mxtoolbox.
- 
-* **GRC**
-  * [**CIS Controls v8 Assessment**](https://github.com/CKeppen/Portfolio/blob/main/CIS_Controls_v8_Assessment.md ): Security Control assessment using CIS Controls v8 to assess the security of the [Windows Enterprise Environment](https://github.com/CKeppen/Portfolio/blob/main/Creating%20a%20Microsoft%20Work%20Environment%20with%20AD%20DS.md) project.
 
 * **Incident Response Analysis**
   * [**PCAP Analysis Demonstration with Case Notes (MZARUH)**](https://github.com/CKeppen/Portfolio/blob/main/Pcap-Analysis-Demonstration-with-Case-Notes-(MZARUH).md): Investigation of a pcap file using tcpdump, WireShark and CyberChef. Leading to Cobalt Strike IOCs.
