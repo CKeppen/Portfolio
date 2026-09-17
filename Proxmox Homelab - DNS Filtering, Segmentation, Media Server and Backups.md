@@ -411,7 +411,7 @@ During the perimeter audit, I found my laptop wasn't using AdGuard for about two
 
 `resolvectl status` showed the VPN link claiming all DNS queries with the `~.` routing domain. AdGuard's query log had no entries from my laptop during that time.
 
-I disconnected the VPN, turned off auto-connect and now only use it on untrusted networks. Details are in the [Home Network Perimeter Audit](Home%20Network%20Perimeter%20Audit.md).
+I disconnected the VPN, turned off auto-connect and now only use it on untrusted networks.
 
 ### Power Backup
 
