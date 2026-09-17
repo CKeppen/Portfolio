@@ -25,7 +25,7 @@ The server also runs AdGuard Home for household DNS filtering and Jellyfin as a 
 
 Each part was built in stages. I didn't move on to the next stage until the current one was tested and working.
 
-After the build was done, I ran a perimeter audit to check if anything on the network was reachable from the internet. That audit is its own write-up, [Home Network Perimeter Audit](Home%20Network%20Perimeter%20Audit.md), and a short version is included here.
+After the build was done, I ran a perimeter audit to check if anything on the network was reachable from the internet.
 
 IP addresses, hostnames and device identifiers are left out of this write-up on purpose.
 
@@ -201,7 +201,7 @@ I originally had GPU passthrough planned as its own phase for hardware transcodi
 
 ## Perimeter Audit
 
-Once everything was built, I wanted to confirm nothing was exposed to the internet and that the household controls were actually working. The full details are in the [Home Network Perimeter Audit](Home%20Network%20Perimeter%20Audit.md).
+Once everything was built, I wanted to confirm nothing was exposed to the internet and that the household controls were actually working.
 
 - Scanned ports on my public IP with `nmap` from a cellular connection. All came back `filtered`
 - Checked Shodan for any recorded services on my public IP. None found
