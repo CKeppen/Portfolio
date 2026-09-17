@@ -1,3 +1,4 @@
+Proxmox Homelab - DNS Filtering, Segmentation, Media Server and Backups
 By: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
 Date: 09/16/2026
 
@@ -63,7 +64,12 @@ IP addresses, hostnames and device identifiers are left out of this write-up on 
 | Jellyfin | LXC | Home LAN |
 | pfSense CE | VM | Edge of the backup segment |
 | Proxmox Backup Server | VM | Behind pfSense |
-![](Attachments/Pasted%20image%2020260916214316.png)
+
+<br>
+
+![](images/Pasted%20image%2020260916214316.png)
+
+<br>
 
 ## Network Concept
 
@@ -97,7 +103,12 @@ I installed Proxmox VE and switched the package repository to the no-subscriptio
 
 The host management IP was set as a static address outside of the router's DHCP pool, so it wouldn't conflict with household devices.
 
-![](Attachments/Pasted%20image%2020260917103112.png)
+<br>
+
+
+![](images/Pasted%20image%2020260917103112.png)
+
+<br>
 
 ## AdGuard Home DNS Filtering
 
@@ -114,7 +125,11 @@ It is also the simpler and more efficient setup. Every device in the house sends
 5. Added the default ad and tracker lists, plus a malware and threat blocklist
 6. Verified ads were being blocked on a household device
 
-![](Attachments/Pasted%20image%2020260916214552.png)
+<br>
+
+![](images/Pasted%20image%2020260916214552.png)
+
+<br>
 
 Really be careful going overboard with different preset DNS Filters. I go over some of the fun trial and errors I went through here, [DNS Filtering Lessons](#dns-filtering-lessons).
 ## pfSense Firewall
@@ -131,13 +146,21 @@ My server only has one NIC and the ISP router doesn't support VLANs. So pfSense 
 3. Assigned the WAN and LAN interfaces in pfSense
 4. Verified pfSense could route out to the internet before putting anything behind it
 
-![](Attachments/Pasted%20image%2020260916221157.png)
+<br>
+
+![](images/Pasted%20image%2020260916221157.png)
+
+<br>
 
 ## Moving PBS Behind pfSense
 
 PBS was the first service I moved behind the firewall. It holds the backups for every VM and container, so it is worth protecting. It was also low risk to experiment with, since nothing in the house depends on it day to day.
 
-![](Attachments/Pasted%20image%2020260916221123.png)
+<br>
+
+![](images/Pasted%20image%2020260916221123.png)
+
+<br>
 
 The order here mattered a lot. More on that in [Order of Operations](#order-of-operations).
 
@@ -149,7 +172,11 @@ The order here mattered a lot. More on that in [Order of Operations](#order-of-o
 
 The backup completed successfully through the firewall. Success!
 
-![](Attachments/Pasted%20image%2020260916221509.png)
+<br>
+
+![](images/Pasted%20image%2020260916221509.png)
+
+<br>
 
 ## Jellyfin Media Server
 
@@ -166,7 +193,11 @@ The read-only mount was a security decision. Smart TVs and streaming devices run
 
 I originally had GPU passthrough planned as its own phase for hardware transcoding. After testing playback, I retired that phase. I go over why in [Testing Before GPU Passthrough](#testing-before-gpu-passthrough).
 
-![](Attachments/Pasted%20image%2020260916221645.png)
+<br>
+
+![](images/Pasted%20image%2020260916221645.png)
+
+<br>
 
 ## Perimeter Audit
 
@@ -187,16 +218,26 @@ The audit also found one issue. A VPN client on my laptop was silently skipping 
 
 pfSense routed to the internet before PBS was moved behind it. Ping to `9.9.9.9` and `google.com` were successful.
 
-![](Attachments/Pasted%20image%2020260917104915.png)
+<br>
 
-![](Attachments/Pasted%20image%2020260917104932.png)
+![](images/Pasted%20image%2020260917104915.png)
 
-![](Attachments/Pasted%20image%2020260917104536.png)
+![](images/Pasted%20image%2020260917104932.png)
+
+![](images/Pasted%20image%2020260917104536.png)
+
+<br>
+
 ## Host to PBS
 
 The Proxmox host reached PBS through the firewall rule, and a full backup job completed.
 
-![](Attachments/Pasted%20image%2020260916221509.png)
+<br>
+
+![](images/Pasted%20image%2020260916221509.png)
+
+<br>
+
 ## Household Devices to PBS
 
 Only the Proxmox host has a route and an allow rule to the backup segment. The perimeter audit confirmed my laptop on the home LAN has no route to it.
@@ -209,7 +250,11 @@ The pfSense web GUI is not reachable from the home LAN. This is intended. Manage
 
 Ads and known malicious domains are blocked on household devices, and queries show in the AdGuard query log.
 
-![](Attachments/Pasted%20image%2020260917111149.png)
+<br>
+
+![](images/Pasted%20image%2020260917111149.png)
+
+<br>
 
 ## Jellyfin Read-Only Mount
 
@@ -219,19 +264,31 @@ Trying to create a file on the media mount from inside the container returned `R
 pct exec 103 -- touch /data/media/writetest
 ```
 
-![](Attachments/Pasted%20image%2020260917111722.png)
+<br>
+
+![](images/Pasted%20image%2020260917111722.png)
+
+<br>
 
 ## Jellyfin Playback
 
 The test movie confirmed Direct Play was working. The phone app played with true Direct Play, with no transcode process running on the server. The browser used Direct Stream, where the video passed through untouched and only the audio was converted.
 
-![](Attachments/Pasted%20image%2020260916222644.png)
+<br>
+
+![](images/Pasted%20image%2020260916222644.png)
+
+<br>
 
 ## Internet Exposure
 
 No services reachable from the internet. All scanned ports filtered.
 
-![](Attachments/Pasted%20image%2020260917122548.png)
+<br>
+
+![](images/Pasted%20image%2020260917122548.png)
+
+<br>
 
 ---
 # Lessons Learned
@@ -242,7 +299,11 @@ When you get a new toy, it can be hard to not just turn everything on. Which in 
 
 First was enabling so many lists that I froze the AdGuard service as it ran out of RAM. Eventually I had to bump all the remaining RAM into the service to let it finish adding the rules. Which, AdGuard does provide in the table. A note to always check this. I settled on these two.
 
-![](Attachments/Pasted%20image%2020260917113913.png)
+<br>
+
+![](images/Pasted%20image%2020260917113913.png)
+
+<br>
 
 Another issue is blocking too much. Everyone hates adds on YouTube, so I thought I'd try blocking it. I found a list that advertised as a YouTube blocklist. What I didn't realize is that it does just block the ads, it blocks all of YouTube. Which resulted in a verbal ticket from my girlfriend. High priority, Critical, All hands on deck.
 
@@ -298,7 +359,11 @@ Anything I copied into the folder as root on the host showed up as `0:0` on the 
 
 To check from inside the container, `ls -lan` shows the raw ID numbers instead of names. If the owner shows as `65534`, the ownership change didn't take.
 
-![](Attachments/Pasted%20image%2020260917112144.png)
+<br>
+
+![](images/Pasted%20image%2020260917112144.png)
+
+<br>
 
 ## Testing Before GPU Passthrough
 
@@ -322,11 +387,19 @@ When checking for transcoding, a plain search for "ffmpeg" in the running proces
 
 `ps aux | grep ffmpeg` found Jellyfin's server process.
 
-![](Attachments/Pasted%20image%2020260916222229.png)
+<br>
+
+![](images/Pasted%20image%2020260916222229.png)
+
+<br>
 
 Searching for the transcoder's full process path gave the correct answer.
 
-![](Attachments/Pasted%20image%2020260916221916.png)
+<br>
+
+![](images/Pasted%20image%2020260916221916.png)
+
+<br>
 
 ## Read-Only Mount Library Scans
 
