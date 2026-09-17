@@ -437,7 +437,7 @@ Jellyfin was a good exercise in testing before building. I had GPU passthrough p
 
 The perimeter audit was a nice way to close it out and make sure my home network was still secure. Nothing is reachable from the internet. But it also showed that a control can be set up correctly and still not be applied on every device. I wouldn't have caught the VPN issue without checking the AdGuard logs.
 
-RAM is my biggest limit at 16 GB. A 32 GB upgrade is cheap for this platform and would help a lot.
+RAM is my biggest limit at 16 GB.
 
 Next up:
 
