@@ -1,6 +1,6 @@
 # Proxmox Homelab - DNS Filtering, Segmentation, Media Server and Backups
 By: Cody Keppen [LinkedIn Profile](https://www.linkedin.com/in/cody-keppen-a09068355/)
-Date: 09/16/2026
+<br> Date: 09/16/2026
 
 ---
 # Table of Contents
