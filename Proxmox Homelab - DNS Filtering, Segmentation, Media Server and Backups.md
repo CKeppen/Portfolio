@@ -444,7 +444,7 @@ Next up:
 - Authentik for SSO and MFA in front of my self-hosted services, which ties into my IAM studies
 - Vaultwarden for password management in its own container
 - A backup plan for the host data on the 8 TB drive
-- Mounting the data drives by UUID so device names changing after a reboot don't cause issues
+- Server restoration after power outage
 
 ---
 # Resources
