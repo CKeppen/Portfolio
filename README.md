@@ -4,15 +4,13 @@ Last Updated: 09/02/2026
 
 ---
 
-After a decade in the mortgage industry, I transitioned to cybersecurity. Since August 2025, I’ve earned my Google Cybersecurity Certificate, CompTIA Security+, AZ-900, and SC-300, driven by a strong focus on Identity and Access Management (IAM) and Artificial Intelligence. I also maintain extensive home labs to self-host and continuously expand my technical knowledge.
+I focus on Identity and Access Management — Microsoft Entra ID and on-prem Active Directory, covering provisioning and deprovisioning, the joiner/mover/leaver lifecycle, Conditional Access, and least privilege. I earned my SC-300 in 2026 and my CompTIA Sec+ at the end of 2025. I learn best by building, standing up labs and documenting projects on GitHub.
 
-My exposure to AI began during OpenAI’s 2020 beta. Later, seeing agentic enterprise demos at a quality conference highlighted a new age of technology. This inspired my career pivot: upskilling in cybersecurity to secure the systems driving the new AI era.
+Across my career I've focused on automation to increase speed, quality, and consistency, using report building to drive data-driven initiatives and a continuous-improvement mindset. I spent about a decade in the SLA driven mortgage industry, advancing from a data entry role to Director. Early on I built macros that kept my quality rate above 95%. Later, as Director of Quality Inspection, my team used SQL reporting to sustain a company-wide quality rate above 99% across 100,000+ documents a month, using alerts that flagged errors before they went out the door. As a department head, I worked with the development team to maintain and enhance software used by my teams, and I was responsible for licensing audits, vendor compliance checks and access reviews for my team and vendors.
 
-Previously, at Nationwide Title Clearing, I advanced from a data entry role to managing a 40+ person department. Early on, I built macros that kept my personal quality rate above 95% and production over 110% of KPIs. This drive for efficiency led to my role as Director of Quality Inspection, where I leveraged SQL reporting to support production lines and sustain a company-wide quality rate above 95%. I also managed a unit that developed report-centric alerts to catch defects before they reached the client.
+My exposure to AI began during OpenAI's 2020 beta, and seeing agentic enterprise demos pushed me toward this pivot: upskilling in cybersecurity to help secure the systems driving the new AI era.
 
-Ultimately, as Director of Document Production, I oversaw in-house teams and external vendors. My core responsibilities included data-driven forecasting to meet SLAs, client onboarding, disaster recovery planning, and collaborating with developers to improve production software.
-
-My long-term interest is Identity & Access Management (IAM) and SOC Analysis, while using home lab to continue expanding my foundational IT knowledge.
+I'm focused on landing an identity or IAM role where I can own the access lifecycle, and I'm also open to help desk or service desk work — much of it (account resets, MFA, group membership, access requests) is close to the identity work I'm already doing.
 
 ## **Projects & Write-Ups**
 
